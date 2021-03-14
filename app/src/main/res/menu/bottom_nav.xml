@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/navigation_locator"
+        android:icon="@drawable/ic_location"
+        android:title="@string/locator" />
+
+
+    <item
+        android:id="@+id/navigation_eduCenter"
+        android:icon="@drawable/ic_book"
+        android:title="@string/educenter" />
+
+    <item
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/ic_more"
+        android:title="@string/more" />
+
+</menu>

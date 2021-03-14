@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="more">المزيد</string>
+    <string name="educenter">الأخبار</string>
+    <string name="locator">المساعد</string>
+    <string name="home">الرئيسيه</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome">مرحباً</string>
+    <string name="novo_locator">المساعد</string>
+
+    <string name="faq">الأسئلة المتكررة</string>
+    <string name="about_us">عن الشركة</string>
+    <string name="terms_of_use">شروط الأستخدام</string>
+    <string name="privacy_statement">الخصوصية</string>
+    <string name="languages">اللغات</string>
+    <string name="english">English</string>
+    <string name="arabic">العربية</string>
+</resources>
