@@ -1,4 +1,4 @@
-package com.example.novocare;
+package com.cat.novocare;
 
 import android.os.Bundle;
 
@@ -10,12 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MoreFragment extends Fragment {
+public class LocatorFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_more, container, false);
+        return inflater.inflate(R.layout.fragment_locator, container, false);
     }
 
     @Override

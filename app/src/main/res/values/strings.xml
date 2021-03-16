@@ -1,11 +1,13 @@
 <resources>
-    <string name="app_name" translatable="false">NovoCare</string>
+    <string name="app_name" translatable="false">Novo Care</string>
+    <string name="english" translatable="false">English</string>
+    <string name="arabic" translatable="false">العربية</string>
+
+
     <string name="more">More</string>
     <string name="educenter">EduCenter</string>
     <string name="locator">Locator</string>
     <string name="home">Home</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="welcome">Welcome</string>
     <string name="novo_locator">Novo Locator</string>
     <string name="faq">FAQ</string>
@@ -13,6 +15,4 @@
     <string name="terms_of_use">Terms of use</string>
     <string name="privacy_statement">Privacy statement</string>
     <string name="languages">Languages</string>
-    <string name="english">English</string>
-    <string name="arabic">العربية</string>
 </resources>

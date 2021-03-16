@@ -107,7 +107,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="30dp"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layoutDirection="ltr">
 
             <TextView
                 android:layout_width="wrap_content"

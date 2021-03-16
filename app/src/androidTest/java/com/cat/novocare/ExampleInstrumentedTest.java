@@ -1,4 +1,4 @@
-package com.example.novocare;
+package com.cat.novocare;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.example.novocare;
+package com.cat.novocare;
 
 import org.junit.Test;
 
