@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.cat.novocare.main_activity.MainActivity;
 import com.cat.novocare.language_utils.LocaleHelper;
 
 import java.util.Timer;

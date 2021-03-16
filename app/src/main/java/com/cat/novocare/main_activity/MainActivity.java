@@ -1,4 +1,4 @@
-package com.cat.novocare;
+package com.cat.novocare.main_activity;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,9 +12,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.cat.novocare.R;
 import com.cat.novocare.language_utils.BaseActivity;
 import com.cat.novocare.language_utils.LanguageUtils;
-import com.cat.novocare.language_utils.LocaleHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Locale;
@@ -30,14 +30,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 
     BottomNavigationView bottomNavigationView;
 
-    public void recreateTask(final Context context) {
-        final PackageManager pm = context.getPackageManager();
-        final Intent intent = pm.getLaunchIntentForPackage(context.getPackageName());
-        final ComponentName componentName = intent.getComponent();
-        final Intent mainIntent = Intent.makeRestartActivityTask(componentName);
-        context.startActivity(mainIntent);
-        Runtime.getRuntime().exit(0);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +53,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 
         if (id == R.id.navigation_home) {
             setContentFragment(new HomeFragment());
-//            LocaleHelper.changeLanguage(MainActivity.this, "ar");
-//            recreateTask(MainActivity.this);
         } else if (id == R.id.navigation_locator) {
             setContentFragment(new LocatorFragment());
         } else if (id == R.id.navigation_eduCenter) {
