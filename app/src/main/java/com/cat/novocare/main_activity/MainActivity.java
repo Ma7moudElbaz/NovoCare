@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.cat.novocare.R;
 import com.cat.novocare.language_utils.BaseActivity;
 import com.cat.novocare.language_utils.LanguageUtils;
+import com.cat.novocare.main_activity.edu_center.EduCenterFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Locale;

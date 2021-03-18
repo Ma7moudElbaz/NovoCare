@@ -4,15 +4,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashActivity"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/white"
+    android:orientation="horizontal">
 
-    <TextView
+
+    <LinearLayout
+        android:id="@+id/choose_lang_cont"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/logo" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/choose_lang_ar"
+                android:textColor="@color/gray"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/choose_lang_en"
+                android:textColor="@color/gray"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/ar_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/blue_border_button_bg"
+                android:text="@string/arabic"
+                android:textColor="@color/dark_blue"
+                android:layout_marginTop="40dp"/>
+
+            <Button
+                android:id="@+id/en_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/blue_border_button_bg"
+                android:text="@string/english"
+                android:textColor="@color/dark_blue" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        android:text="@string/novo_care"/>
+        android:src="@drawable/logo"/>
 
 </LinearLayout>

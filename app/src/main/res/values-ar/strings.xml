@@ -13,4 +13,7 @@
     <string name="privacy_statement">الخصوصية</string>
     <string name="languages">اللغات</string>
     <string name="novo_care">نوفو كير</string>
+    <string name="image_description">وصف الصوره</string>
+    <string name="wait">Wait</string>
+    <string name="network_error">Network Error</string>
 </resources>
