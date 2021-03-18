@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -36,8 +37,9 @@ public class MoreFragment extends Fragment {
         Runtime.getRuntime().exit(0);
     }
 
+    MainActivity activity;
 
-    TextView arBtn,enBtn;
+    TextView arBtn, enBtn;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -45,30 +47,40 @@ public class MoreFragment extends Fragment {
         arBtn = view.findViewById(R.id.ar_btn);
         enBtn = view.findViewById(R.id.en_btn);
 
+        activity = (MainActivity) getActivity();
+
+
         setLangButtons(LanguageUtils.getLanguage(getActivity()));
 
-        arBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            LocaleHelper.changeLanguage(getActivity(), "ar");
-            recreateTask(getActivity());
+        arBtn.setOnClickListener(v -> {
+            if (!(LanguageUtils.getLanguage(activity).equals("ar"))) {
+                LocaleHelper.changeLanguage(activity, "ar");
+                recreateTask(activity);
             }
         });
 
-        enBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            LocaleHelper.changeLanguage(getActivity(), "en");
-            recreateTask(getActivity());
+        enBtn.setOnClickListener(v -> {
+            if (LanguageUtils.getLanguage(activity).equals("ar")) {
+                LocaleHelper.changeLanguage(activity, "en");
+                recreateTask(activity);
             }
         });
     }
 
-    private void setLangButtons(String lang){
-//        if (lang.equals("ar")){
-//            arBtn.setBackground(R.drawable.blue_button_bg);
-//        }else {
-//
-//        }
+    private void setLangButtons(String lang) {
+
+        if (lang.equals("ar")) {
+            arBtn.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.blue_button_bg));
+            arBtn.setTextColor(ContextCompat.getColor(getContext(), R.color.white));
+
+            enBtn.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.gray_border_button_bg));
+            enBtn.setTextColor(ContextCompat.getColor(getContext(), R.color.dark_blue));
+        } else {
+            enBtn.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.blue_button_bg));
+            enBtn.setTextColor(ContextCompat.getColor(getContext(), R.color.white));
+
+            arBtn.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.gray_border_button_bg));
+            arBtn.setTextColor(ContextCompat.getColor(getContext(), R.color.dark_blue));
+        }
     }
 }

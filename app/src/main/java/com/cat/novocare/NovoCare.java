@@ -13,5 +13,4 @@ public class NovoCare extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(LocaleHelper.changeLanguage(base, getLanguage(base)));
     }
-
 }

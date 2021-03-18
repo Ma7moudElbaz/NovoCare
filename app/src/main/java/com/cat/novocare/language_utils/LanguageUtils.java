@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class LanguageUtils {
+
     private static final String SELECTED_LANGUAGE = "Locale.Helper.Selected.Language";
 
     private static SharedPreferences getSharedPreferences(Context context) {

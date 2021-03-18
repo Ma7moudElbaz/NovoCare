@@ -13,6 +13,7 @@ import static com.cat.novocare.language_utils.LanguageUtils.setLanguage;
 
 
 public class LocaleHelper {
+
     public static Context changeLanguage(final Context context, final String toLang) {
         //at first save the desired language at shared preference
         setLanguage(context, toLang);
