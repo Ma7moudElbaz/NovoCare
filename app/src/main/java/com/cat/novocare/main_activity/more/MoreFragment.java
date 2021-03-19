@@ -1,4 +1,4 @@
-package com.cat.novocare.main_activity;
+package com.cat.novocare.main_activity.more;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.cat.novocare.R;
 import com.cat.novocare.language_utils.LanguageUtils;
 import com.cat.novocare.language_utils.LocaleHelper;
+import com.cat.novocare.main_activity.MainActivity;
 
 public class MoreFragment extends Fragment {
     @Override

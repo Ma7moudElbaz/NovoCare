@@ -1,6 +1,8 @@
 package com.cat.novocare.main_activity.edu_center;
 
-public class News_item {
+import java.io.Serializable;
+
+public class News_item implements Serializable {
     private final int newsId;
     private final String title, slug, caption, imageUrl, content, date;
 

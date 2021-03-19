@@ -1,4 +1,4 @@
-package com.cat.novocare.main_activity;
+package com.cat.novocare.main_activity.locator;
 
 import android.os.Bundle;
 

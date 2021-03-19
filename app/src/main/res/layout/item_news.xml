@@ -69,8 +69,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:gravity="bottom"
-                android:maxLines="3"
-                android:minLines="3"
+                android:maxLines="1"
                 android:text="@string/date_dummy"
                 android:textColor="@color/gray"
                 android:textSize="12sp" />

@@ -14,6 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".main_activity.more.PrivacyActivity"></activity>
+        <activity android:name=".main_activity.more.TermsActivity" />
+        <activity android:name=".main_activity.more.AboutUsActivity" />
+        <activity android:name=".main_activity.more.FaqActivity" />
+        <activity android:name=".main_activity.edu_center.NewsDetails" />
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait">

@@ -11,6 +11,9 @@ import com.cat.novocare.R;
 import com.cat.novocare.language_utils.BaseActivity;
 import com.cat.novocare.language_utils.LanguageUtils;
 import com.cat.novocare.main_activity.edu_center.EduCenterFragment;
+import com.cat.novocare.main_activity.home.HomeFragment;
+import com.cat.novocare.main_activity.locator.LocatorFragment;
+import com.cat.novocare.main_activity.more.MoreFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Locale;

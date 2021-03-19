@@ -1,4 +1,4 @@
-package com.cat.novocare.main_activity;
+package com.cat.novocare.main_activity.home;
 
 import android.os.Bundle;
 
@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cat.novocare.R;
+import com.google.android.material.imageview.ShapeableImageView;
 
 
 public class HomeFragment extends Fragment {
@@ -22,6 +23,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

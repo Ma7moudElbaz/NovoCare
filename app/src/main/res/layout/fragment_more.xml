@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".main_activity.MoreFragment">
+    tools:context=".main_activity.more.MoreFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -36,6 +36,7 @@
             android:padding="20dp">
 
             <TextView
+                android:id="@+id/faq"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="5dp"
@@ -54,6 +55,7 @@
 
 
             <TextView
+                android:id="@+id/about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="5dp"
@@ -72,6 +74,7 @@
 
 
             <TextView
+                android:id="@+id/terms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="5dp"
@@ -90,6 +93,7 @@
 
 
             <TextView
+                android:id="@+id/privacy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="5dp"
@@ -115,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/languages"
                 android:textColor="@color/gray"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -135,7 +139,7 @@
                     android:paddingBottom="5dp"
                     android:text="@string/english"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/ar_btn"
@@ -148,7 +152,7 @@
                     android:paddingBottom="5dp"
                     android:text="@string/arabic"
                     android:textColor="@color/dark_blue"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
 

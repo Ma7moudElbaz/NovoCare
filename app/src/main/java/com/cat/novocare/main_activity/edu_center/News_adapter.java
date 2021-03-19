@@ -1,6 +1,7 @@
 package com.cat.novocare.main_activity.edu_center;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.cat.novocare.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,9 +50,9 @@ public class News_adapter extends RecyclerView.Adapter<News_adapter.ViewHolder> 
 
 
         holder.parent_layout.setOnClickListener(v -> {
-//                Intent i = new Intent(mContext, ProgressFlmActivity.class);
-//                i.putExtra("news_Id",items.get(position).getNewsId());
-//                mContext.startActivity(i);
+            Intent i = new Intent(mContext, NewsDetails.class);
+            i.putExtra("newsItem", (Serializable) items.get(position));
+            mContext.startActivity(i);
         });
 
     }
@@ -63,7 +65,7 @@ public class News_adapter extends RecyclerView.Adapter<News_adapter.ViewHolder> 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
 
-        TextView title,date,caption;
+        TextView title, date, caption;
         ImageView image;
         LinearLayout parent_layout;
 

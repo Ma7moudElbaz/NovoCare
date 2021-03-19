@@ -14,7 +14,7 @@
 
     <item
         android:id="@+id/navigation_eduCenter"
-        android:icon="@drawable/ic_book"
+        android:icon="@drawable/ic_news"
         android:title="@string/educenter" />
 
     <item
