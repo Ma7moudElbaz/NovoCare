@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -38,6 +39,8 @@ public class FaqActivity extends AppCompatActivity {
     boolean mHasReachedBottomOnce = false;
     String lang;
 
+    ImageView back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,8 @@ public class FaqActivity extends AppCompatActivity {
 
         loading = findViewById(R.id.loading);
         faqRecycler = findViewById(R.id.recycler);
+        back = findViewById(R.id.back);
+        back.setOnClickListener(v -> onBackPressed());
 
         faq_list = new ArrayList<>();
 
@@ -110,7 +115,7 @@ public class FaqActivity extends AppCompatActivity {
     private void initFaqRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getBaseContext(), LinearLayoutManager.VERTICAL, false);
         faqRecycler.setLayoutManager(layoutManager);
-        faq_adapter = new Faq_adapter(getBaseContext(), faq_list);
+        faq_adapter = new Faq_adapter(faq_list);
         faqRecycler.setAdapter(faq_adapter);
 
         faqRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {

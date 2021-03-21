@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Faq_item implements Serializable {
     private final String question, answer;
-    private  boolean expanded;
+    private boolean expanded;
 
     public Faq_item(String question, String answer, boolean expanded) {
         this.question = question;

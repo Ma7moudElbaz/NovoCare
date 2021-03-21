@@ -21,10 +21,7 @@ public class Faq_adapter extends RecyclerView.Adapter<Faq_adapter.ViewHolder> {
 
     private final List<Faq_item> items;
 
-    private final Context mContext;
-
-    public Faq_adapter(Context context, ArrayList<Faq_item> items) {
-        this.mContext = context;
+    public Faq_adapter(ArrayList<Faq_item> items) {
         this.items = items;
     }
 
