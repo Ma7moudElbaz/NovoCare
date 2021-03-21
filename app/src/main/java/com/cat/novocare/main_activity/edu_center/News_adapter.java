@@ -62,9 +62,11 @@ public class News_adapter extends RecyclerView.Adapter<News_adapter.ViewHolder> 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView title, date, caption;
-        ImageView image;
-        LinearLayout parent_layout;
+        final TextView title;
+        final TextView date;
+        final TextView caption;
+        final ImageView image;
+        final LinearLayout parent_layout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

@@ -12,9 +12,7 @@
     <string name="terms_of_use">شروط الأستخدام</string>
     <string name="privacy_statement">الخصوصية</string>
     <string name="languages">اللغات</string>
-    <string name="novo_care">نوفو كير</string>
     <string name="image_description">وصف الصوره</string>
-    <string name="wait">تحميل البيانات..</string>
     <string name="network_error">خطأ في الاتصال بالانترنت …</string>
     <string name="contact_novo">تواصل معنا الآن</string>
 </resources>

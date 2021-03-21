@@ -1,6 +1,5 @@
 package com.cat.novocare.main_activity.more.faq;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,9 +62,10 @@ public class Faq_adapter extends RecyclerView.Adapter<Faq_adapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView question, answer;
-        RelativeLayout question_layout;
-        ImageView toggle;
+        final TextView question;
+        final TextView answer;
+        final RelativeLayout question_layout;
+        final ImageView toggle;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

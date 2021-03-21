@@ -18,7 +18,7 @@ import static com.cat.novocare.language_utils.LanguageUtils.getLanguage;
 
 public class SplashActivity extends AppCompatActivity {
     // Splash screen timer
-    int SPLASH_TIME_OUT = 500;
+    final int SPLASH_TIME_OUT = 500;
 
     LinearLayout choose_lang_cont;
     Button arBtn, enBtn;
