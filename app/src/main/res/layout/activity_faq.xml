@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".main_activity.more.FaqActivity">
+    tools:context=".main_activity.more.faq.FaqActivity">
 
     <RelativeLayout
         android:id="@+id/topPanel"
@@ -40,23 +40,18 @@
             android:background="@color/light_gray" />
     </RelativeLayout>
 
-    <ScrollView
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
-
-
-        <TextView
-            android:id="@+id/details"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="20dp"
-            android:text="@string/text_dummy"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:drawableBottomCompat="@drawable/novo_logo_gray" />
-
-
-    </ScrollView>
+        android:padding="10dp"
+        tools:listitem="@layout/item_faq" />
 
 </LinearLayout>

@@ -3,30 +3,21 @@ package com.cat.novocare.main_activity.edu_center;
 import java.io.Serializable;
 
 public class News_item implements Serializable {
-    private final int newsId;
-    private final String title, slug, caption, imageUrl, content, date;
+    private final String title, caption, imageUrl, content, date;
 
-    public News_item(int newsId, String title, String slug, String caption, String imageUrl, String content, String date) {
-        this.newsId = newsId;
+    public News_item(String title, String caption, String imageUrl, String content, String date) {
         this.title = title;
-        this.slug = slug;
         this.caption = caption;
         this.imageUrl = imageUrl;
         this.content = content;
         this.date = date;
     }
 
-    public int getNewsId() {
-        return newsId;
-    }
 
     public String getTitle() {
         return title;
     }
 
-    public String getSlug() {
-        return slug;
-    }
 
     public String getCaption() {
         return caption;

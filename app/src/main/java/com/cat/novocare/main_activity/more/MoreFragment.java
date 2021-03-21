@@ -20,6 +20,7 @@ import com.cat.novocare.R;
 import com.cat.novocare.language_utils.LanguageUtils;
 import com.cat.novocare.language_utils.LocaleHelper;
 import com.cat.novocare.main_activity.MainActivity;
+import com.cat.novocare.main_activity.more.faq.FaqActivity;
 
 public class MoreFragment extends Fragment {
     @Override

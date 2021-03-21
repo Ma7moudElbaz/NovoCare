@@ -4,10 +4,11 @@
     <color name="colorPrimaryDark">#042D68</color>
     <color name="colorAccent">#D84124</color>
 
-
-    <color name="dark_blue">#042D68</color>
-    <color name="light_blue">#094885</color>
-    <color name="list_item_bg">#EAEDF2</color>
+    <color name="dark_blue">#002B66</color>
+    <color name="light_blue">#0098D8</color>
+    <color name="light_blue_">#094885</color>
+    <color name="list_item_bg">#F0F9FD</color>
+    <color name="expand_list_item_bg">#4DF0F9FD</color>
 
 
 

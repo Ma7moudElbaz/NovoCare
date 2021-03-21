@@ -60,10 +60,6 @@ public class EduCenterFragment extends Fragment {
 
         news_list = new ArrayList<>();
 
-        ProgressDialog dialog = new ProgressDialog(getContext());
-        dialog.setMessage(getResources().getString(R.string.wait));
-        dialog.setCancelable(false);
-
         initNewsRecyclerView();
         loadNewsData(lang, currentPageNum);
     }
@@ -73,7 +69,7 @@ public class EduCenterFragment extends Fragment {
 
         Webservice.getInstance().getApi().getNews(lang, pageNum).enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(@NonNull Call<ResponseBody> call,@NonNull Response<ResponseBody> response) {
+            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
 
                 try {
                     JSONObject responseObject = new JSONObject(response.body().string());
@@ -104,15 +100,13 @@ public class EduCenterFragment extends Fragment {
         try {
             for (int i = 0; i < list.length(); i++) {
                 JSONObject currentobject = list.getJSONObject(i);
-                final int id = currentobject.getInt("id");
                 final String title = currentobject.getString("title");
-                final String slug = currentobject.getString("slug");
                 final String caption = currentobject.getString("caption");
                 final String imageUrl = currentobject.getString("image");
                 final String content = currentobject.getString("text");
                 final String date = currentobject.getString("created_at");
 
-                news_list.add(new News_item(id, title, slug, caption, imageUrl, content, date));
+                news_list.add(new News_item(title, caption, imageUrl, content, date));
 
             }
 

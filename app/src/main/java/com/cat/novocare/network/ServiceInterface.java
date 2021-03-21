@@ -10,6 +10,9 @@ public interface ServiceInterface {
     @GET("posts")
     Call<ResponseBody> getNews(@Query("lang") String lang,@Query("page") int pageNo);
 
+    @GET("faqs")
+    Call<ResponseBody> getFaqs(@Query("lang") String lang,@Query("page") int pageNo);
+
     @GET("abouts")
     Call<ResponseBody> getAbouts(@Query("lang") String lang);
 
@@ -18,6 +21,5 @@ public interface ServiceInterface {
 
     @GET("privacy")
     Call<ResponseBody> getPrivacy(@Query("lang") String lang);
-
 
 }
