@@ -10,5 +10,14 @@ public interface ServiceInterface {
     @GET("posts")
     Call<ResponseBody> getNews(@Query("lang") String lang,@Query("page") int pageNo);
 
+    @GET("abouts")
+    Call<ResponseBody> getAbouts(@Query("lang") String lang);
+
+    @GET("terms")
+    Call<ResponseBody> getTerms(@Query("lang") String lang);
+
+    @GET("privacy")
+    Call<ResponseBody> getPrivacy(@Query("lang") String lang);
+
 
 }

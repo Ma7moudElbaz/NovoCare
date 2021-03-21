@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -40,8 +39,6 @@ public class EduCenterFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_edu_center, container, false);
     }
 
-    private ProgressDialog dialog;
-
 
     ArrayList<News_item> news_list;
     RecyclerView newsRecycler;
@@ -51,7 +48,7 @@ public class EduCenterFragment extends Fragment {
     int currentPageNum = 1;
     int lastPageNum;
     boolean mHasReachedBottomOnce = false;
-    String lang ;
+    String lang;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -61,10 +58,9 @@ public class EduCenterFragment extends Fragment {
         loading = view.findViewById(R.id.loading);
         newsRecycler = view.findViewById(R.id.recycler);
 
-
         news_list = new ArrayList<>();
 
-        dialog = new ProgressDialog(getContext());
+        ProgressDialog dialog = new ProgressDialog(getContext());
         dialog.setMessage(getResources().getString(R.string.wait));
         dialog.setCancelable(false);
 
@@ -77,7 +73,7 @@ public class EduCenterFragment extends Fragment {
 
         Webservice.getInstance().getApi().getNews(lang, pageNum).enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(@NonNull Call<ResponseBody> call,@NonNull Response<ResponseBody> response) {
 
                 try {
                     JSONObject responseObject = new JSONObject(response.body().string());
@@ -94,7 +90,7 @@ public class EduCenterFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
                 Log.d("Error Throw", t.toString());
                 Log.d("commit Test Throw", t.toString());
                 Log.d("Call", t.toString());
@@ -116,7 +112,7 @@ public class EduCenterFragment extends Fragment {
                 final String content = currentobject.getString("text");
                 final String date = currentobject.getString("created_at");
 
-                news_list.add(new News_item(id, title, slug, caption,imageUrl,content,date));
+                news_list.add(new News_item(id, title, slug, caption, imageUrl, content, date));
 
             }
 
@@ -139,14 +135,14 @@ public class EduCenterFragment extends Fragment {
 
         newsRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
 
                 if (!recyclerView.canScrollVertically(1) && !mHasReachedBottomOnce) {
                     mHasReachedBottomOnce = true;
 
                     if (currentPageNum <= lastPageNum)
-                        loadNewsData(lang,currentPageNum);
+                        loadNewsData(lang, currentPageNum);
 
                 }
             }

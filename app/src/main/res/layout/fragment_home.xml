@@ -6,7 +6,6 @@
     tools:context=".main_activity.home.HomeFragment">
 
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,6 +52,7 @@
         </LinearLayout>
 
     </ScrollView>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="170dp"

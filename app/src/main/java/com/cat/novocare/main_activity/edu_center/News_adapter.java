@@ -21,7 +21,6 @@ import java.util.List;
 
 
 public class News_adapter extends RecyclerView.Adapter<News_adapter.ViewHolder> {
-    private static final String TAG = "RecyclerViewAdapter";
 
     private final List<News_item> items;
 
@@ -48,7 +47,6 @@ public class News_adapter extends RecyclerView.Adapter<News_adapter.ViewHolder> 
 
         Glide.with(mContext).load(items.get(position).getImageUrl()).placeholder(R.drawable.image_loading).into(holder.image);
 
-
         holder.parent_layout.setOnClickListener(v -> {
             Intent i = new Intent(mContext, NewsDetails.class);
             i.putExtra("newsItem", (Serializable) items.get(position));
@@ -63,7 +61,6 @@ public class News_adapter extends RecyclerView.Adapter<News_adapter.ViewHolder> 
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
 
         TextView title, date, caption;
         ImageView image;

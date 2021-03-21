@@ -41,13 +41,38 @@ public class MoreFragment extends Fragment {
     MainActivity activity;
 
     TextView arBtn, enBtn;
+    TextView faq, about, terms, privacy;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         arBtn = view.findViewById(R.id.ar_btn);
         enBtn = view.findViewById(R.id.en_btn);
+        faq = view.findViewById(R.id.faq);
+        about = view.findViewById(R.id.about);
+        terms = view.findViewById(R.id.terms);
+        privacy = view.findViewById(R.id.privacy);
 
+
+        faq.setOnClickListener(v -> {
+            Intent i = new Intent(getActivity(), FaqActivity.class);
+            startActivity(i);
+        });
+
+        about.setOnClickListener(v -> {
+            Intent i = new Intent(getActivity(), AboutUsActivity.class);
+            startActivity(i);
+        });
+
+        terms.setOnClickListener(v -> {
+            Intent i = new Intent(getActivity(), TermsActivity.class);
+            startActivity(i);
+        });
+
+        privacy.setOnClickListener(v -> {
+            Intent i = new Intent(getActivity(), PrivacyActivity.class);
+            startActivity(i);
+        });
         activity = (MainActivity) getActivity();
 
 

@@ -16,10 +16,10 @@ public class Webservice {
 
     private static final String MAIN_URL = "https://novocare.cat-sw.com/api/v1/";
     private static Webservice instance;
-    private ServiceInterface api;
+    private final ServiceInterface api;
 
     public Webservice() {
-       // OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
+        // OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();

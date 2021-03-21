@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".main_activity.more.AboutUsActivity">
 
     <RelativeLayout
@@ -15,9 +16,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:textSize="16sp"
+            android:text="@string/about_us"
             android:textColor="@color/black"
-            android:text="@string/about_us"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/back"
@@ -26,16 +28,40 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="15dp"
             android:adjustViewBounds="true"
+            android:contentDescription="@string/image_description"
             android:padding="5dp"
             android:src="@drawable/ic_back_arrow"
-            app:tint="@color/dark_blue"
-            android:contentDescription="@string/image_description" />
+            app:tint="@color/dark_blue" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/light_gray"
-            android:layout_alignParentBottom="true"/>
+            android:layout_alignParentBottom="true"
+            android:background="@color/light_gray" />
     </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+
+        <TextView
+            android:id="@+id/details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:drawableBottomCompat="@drawable/novo_logo_gray" />
+
+
+    </ScrollView>
 
 </LinearLayout>

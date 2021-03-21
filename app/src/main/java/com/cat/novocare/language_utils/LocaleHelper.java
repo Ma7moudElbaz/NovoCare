@@ -21,10 +21,9 @@ public class LocaleHelper {
         final Locale toLocale = new Locale(toLang);
         Locale.setDefault(toLocale);
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             return updateResourcesForO(context, toLocale);
-        }
-        else{
+        } else {
             return updateResources(context, toLocale);
         }
     }

@@ -3,6 +3,7 @@ package com.cat.novocare.main_activity;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -28,7 +29,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     }
 
     BottomNavigationView bottomNavigationView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

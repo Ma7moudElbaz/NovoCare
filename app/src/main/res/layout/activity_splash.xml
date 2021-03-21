@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashActivity"
     android:background="@color/white"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    tools:context=".SplashActivity">
 
 
     <LinearLayout
@@ -14,10 +14,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:visibility="gone">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
+            android:contentDescription="@string/image_description"
             android:src="@drawable/logo" />
 
 
@@ -49,10 +51,10 @@
                 android:id="@+id/ar_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/blue_border_button_bg"
                 android:text="@string/arabic"
-                android:textColor="@color/dark_blue"
-                android:layout_marginTop="40dp"/>
+                android:textColor="@color/dark_blue" />
 
             <Button
                 android:id="@+id/en_btn"
@@ -70,6 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/logo"/>
+        android:contentDescription="@string/image_description"
+        android:src="@drawable/logo" />
 
 </LinearLayout>
