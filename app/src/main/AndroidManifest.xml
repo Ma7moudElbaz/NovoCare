@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-        <activity android:name=".main_activity.home.ContactUsActivity"></activity>
+        <activity android:name=".main_activity.home.ContactUsActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".main_activity.more.PrivacyActivity"
             android:screenOrientation="portrait" />

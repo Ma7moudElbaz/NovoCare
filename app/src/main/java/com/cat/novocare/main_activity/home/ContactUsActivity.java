@@ -4,7 +4,6 @@ package com.cat.novocare.main_activity.home;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;

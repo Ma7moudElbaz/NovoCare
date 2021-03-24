@@ -57,7 +57,8 @@
             android:src="@drawable/logo_footer"
             android:adjustViewBounds="true"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"/>
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/image_description" />
         <ImageView
             android:id="@+id/call"
             android:layout_width="wrap_content"
@@ -65,7 +66,8 @@
             android:src="@drawable/call_us"
             android:adjustViewBounds="true"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"/>
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/image_description" />
     </RelativeLayout>
 
 </LinearLayout>
