@@ -7,11 +7,14 @@ import retrofit2.http.Query;
 
 public interface ServiceInterface {
 
+    @GET("home")
+    Call<ResponseBody> getHome(@Query("lang") String lang);
+
     @GET("posts")
-    Call<ResponseBody> getNews(@Query("lang") String lang,@Query("page") int pageNo);
+    Call<ResponseBody> getNews(@Query("lang") String lang, @Query("page") int pageNo);
 
     @GET("faqs")
-    Call<ResponseBody> getFaqs(@Query("lang") String lang,@Query("page") int pageNo);
+    Call<ResponseBody> getFaqs(@Query("lang") String lang, @Query("page") int pageNo);
 
     @GET("abouts")
     Call<ResponseBody> getAbouts(@Query("lang") String lang);

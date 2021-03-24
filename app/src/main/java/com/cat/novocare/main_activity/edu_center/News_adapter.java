@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.cat.novocare.R;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -7,10 +7,11 @@ import android.text.Html;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.bumptech.glide.Glide;
 import com.cat.novocare.R;
 
-public class NewsDetails extends AppCompatActivity {
+public class NewsDetails extends LocalizationActivity {
 
     ImageView image,back;
     TextView title, date, content;

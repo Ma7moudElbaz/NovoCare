@@ -1,7 +1,6 @@
 package com.cat.novocare.main_activity.more.faq;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.R;
 import com.cat.novocare.network.Webservice;
 
@@ -28,7 +28,7 @@ import retrofit2.Response;
 
 
 
-public class FaqActivity extends AppCompatActivity {
+public class FaqActivity extends LocalizationActivity {
 
     ArrayList<Faq_item> faq_list;
     RecyclerView faqRecycler;
