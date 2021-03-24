@@ -2,6 +2,7 @@ package com.cat.novocare;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -28,23 +29,23 @@ public class SplashActivity extends LocalizationActivity {
         arBtn = findViewById(R.id.ar_btn);
         enBtn = findViewById(R.id.en_btn);
 
-//        arBtn.setOnClickListener(v -> {
-//            LocaleHelper.changeLanguage(getBaseContext(), "ar");
-//            navigateLogin();
-//        });
-//
-//        enBtn.setOnClickListener(v -> {
-//            LocaleHelper.changeLanguage(getBaseContext(), "en");
-//            navigateLogin();
-//        });
-//
-//        if (getLanguage(getBaseContext()).equals("sys")) {
-//            choose_lang_cont.setVisibility(View.VISIBLE);
-//        } else {
-//            LocaleHelper.changeLanguage(SplashActivity.this, getLanguage(getBaseContext()));
-//            navigateLoginTimer();
-//        }
-        navigateLoginTimer();
+        arBtn.setOnClickListener(v -> {
+            LanguageEnit.initLanguage(getBaseContext());
+            setLanguage("ar");
+            navigateLogin();
+        });
+
+        enBtn.setOnClickListener(v -> {
+            LanguageEnit.initLanguage(getBaseContext());
+            setLanguage("en");
+            navigateLogin();
+        });
+
+        if (LanguageEnit.getLanguageInit(getBaseContext())) {
+            navigateLoginTimer();
+        } else {
+            choose_lang_cont.setVisibility(View.VISIBLE);
+        }
     }
 
     private void navigateLoginTimer() {

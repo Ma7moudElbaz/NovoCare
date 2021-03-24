@@ -1,5 +1,6 @@
 package com.cat.novocare.main_activity.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -33,7 +34,7 @@ import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
-    TextView homeText;
+    TextView homeText,contactUs;
     ImageView homeImage;
     ProgressBar loading;
     String lang;
@@ -53,6 +54,12 @@ public class HomeFragment extends Fragment {
         homeText = view.findViewById(R.id.text_home);
         homeImage = view.findViewById(R.id.image_home);
         loading = view.findViewById(R.id.loading);
+        contactUs = view.findViewById(R.id.contactUs);
+
+        contactUs.setOnClickListener(v -> {
+            Intent i = new Intent(getActivity(),ContactUsActivity.class);
+            startActivity(i);
+        });
 
 
         lang = Locale.getDefault().toString();
