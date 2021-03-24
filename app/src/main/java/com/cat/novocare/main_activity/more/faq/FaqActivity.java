@@ -68,6 +68,7 @@ public class FaqActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
 
                 try {
+                    assert response.body() != null;
                     JSONObject responseObject = new JSONObject(response.body().string());
                     JSONArray faqArray = responseObject.getJSONArray("data");
                     setFaq(faqArray);

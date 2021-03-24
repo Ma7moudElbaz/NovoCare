@@ -55,6 +55,7 @@ public class AboutUsActivity extends LocalizationActivity {
             public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
 
                 try {
+                    assert response.body() != null;
                     JSONObject responseObject = new JSONObject(response.body().string());
                     JSONObject dataObject = responseObject.getJSONObject("data");
                     String detailsStr = dataObject.getString("caption");

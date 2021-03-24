@@ -72,6 +72,7 @@ public class EduCenterFragment extends Fragment {
             public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
 
                 try {
+                    assert response.body() != null;
                     JSONObject responseObject = new JSONObject(response.body().string());
                     JSONArray newsArray = responseObject.getJSONArray("data");
                     setNews(newsArray);

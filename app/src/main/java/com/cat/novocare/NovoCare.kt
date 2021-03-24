@@ -10,7 +10,7 @@ class NovoCare: Application() {
     private val localizationDelegate = LocalizationApplicationDelegate()
 
     override fun attachBaseContext(base: Context) {
-        localizationDelegate.setDefaultLanguage(base, Locale.ENGLISH);
+        localizationDelegate.setDefaultLanguage(base, Locale.ENGLISH)
         super.attachBaseContext(localizationDelegate.attachBaseContext(base))
     }
 

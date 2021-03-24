@@ -21,6 +21,7 @@ import com.cat.novocare.main_activity.MainActivity;
 import com.cat.novocare.main_activity.more.faq.FaqActivity;
 
 import java.util.Locale;
+import java.util.Objects;
 
 public class MoreFragment extends Fragment {
     @Override
@@ -28,15 +29,6 @@ public class MoreFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_more, container, false);
-    }
-
-    public void recreateTask(final Context context) {
-        final PackageManager pm = context.getPackageManager();
-        final Intent intent = pm.getLaunchIntentForPackage(context.getPackageName());
-        final ComponentName componentName = intent.getComponent();
-        final Intent mainIntent = Intent.makeRestartActivityTask(componentName);
-        context.startActivity(mainIntent);
-        Runtime.getRuntime().exit(0);
     }
 
     MainActivity activity;
@@ -76,28 +68,24 @@ public class MoreFragment extends Fragment {
         });
         activity = (MainActivity) getActivity();
 
-        activity.setMore();
+        Objects.requireNonNull(activity).setMore();
         setLangButtons(Locale.getDefault().toString());
 
-        arBtn.setOnClickListener(v -> {
-            activity.setLanguage("ar");
-        });
+        arBtn.setOnClickListener(v -> activity.setLanguage("ar"));
 
-        enBtn.setOnClickListener(v -> {
-            activity.setLanguage("en");
-        });
+        enBtn.setOnClickListener(v -> activity.setLanguage("en"));
     }
 
     private void setLangButtons(String lang) {
 
         if (lang.equals("ar")) {
-            arBtn.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.blue_button_bg));
+            arBtn.setBackground(ContextCompat.getDrawable(Objects.requireNonNull(getContext()), R.drawable.blue_button_bg));
             arBtn.setTextColor(ContextCompat.getColor(getContext(), R.color.white));
 
             enBtn.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.gray_border_button_bg));
             enBtn.setTextColor(ContextCompat.getColor(getContext(), R.color.dark_blue));
         } else {
-            enBtn.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.blue_button_bg));
+            enBtn.setBackground(ContextCompat.getDrawable(Objects.requireNonNull(getContext()), R.drawable.blue_button_bg));
             enBtn.setTextColor(ContextCompat.getColor(getContext(), R.color.white));
 
             arBtn.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.gray_border_button_bg));

@@ -49,7 +49,7 @@ public class News_adapter extends RecyclerView.Adapter<News_adapter.ViewHolder> 
 
         holder.parent_layout.setOnClickListener(v -> {
             Intent i = new Intent(mContext, NewsDetails.class);
-            i.putExtra("newsItem", (Serializable) items.get(position));
+            i.putExtra("newsItem", items.get(position));
             mContext.startActivity(i);
         });
 
