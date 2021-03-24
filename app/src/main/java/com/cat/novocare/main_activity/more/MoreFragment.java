@@ -17,10 +17,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cat.novocare.R;
-import com.cat.novocare.language_utils.LanguageUtils;
-import com.cat.novocare.language_utils.LocaleHelper;
 import com.cat.novocare.main_activity.MainActivity;
 import com.cat.novocare.main_activity.more.faq.FaqActivity;
+
+import java.util.Locale;
 
 public class MoreFragment extends Fragment {
     @Override
@@ -76,21 +76,15 @@ public class MoreFragment extends Fragment {
         });
         activity = (MainActivity) getActivity();
 
-
-        setLangButtons(LanguageUtils.getLanguage(getActivity()));
+        activity.setMore();
+        setLangButtons(Locale.getDefault().toString());
 
         arBtn.setOnClickListener(v -> {
-            if (!(LanguageUtils.getLanguage(activity).equals("ar"))) {
-                LocaleHelper.changeLanguage(activity, "ar");
-                recreateTask(activity);
-            }
+            activity.setLanguage("ar");
         });
 
         enBtn.setOnClickListener(v -> {
-            if (LanguageUtils.getLanguage(activity).equals("ar")) {
-                LocaleHelper.changeLanguage(activity, "en");
-                recreateTask(activity);
-            }
+            activity.setLanguage("en");
         });
     }
 

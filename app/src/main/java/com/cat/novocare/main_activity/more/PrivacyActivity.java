@@ -12,19 +12,22 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.R;
 import com.cat.novocare.network.Webservice;
 
 import org.json.JSONObject;
+
+import java.util.Locale;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.cat.novocare.language_utils.LanguageUtils.getLanguage;
 
-public class PrivacyActivity extends AppCompatActivity {
+
+public class PrivacyActivity extends LocalizationActivity {
 
 
     TextView details;
@@ -43,7 +46,7 @@ public class PrivacyActivity extends AppCompatActivity {
 
         back.setOnClickListener(v -> onBackPressed());
 
-        lang = getLanguage(getBaseContext());
+        lang = Locale.getDefault().toString();
         getData(lang);
     }
 

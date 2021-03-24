@@ -7,16 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.main_activity.MainActivity;
-import com.cat.novocare.language_utils.LocaleHelper;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static com.cat.novocare.language_utils.LanguageUtils.getLanguage;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends LocalizationActivity {
     // Splash screen timer
     final int SPLASH_TIME_OUT = 500;
 
@@ -32,23 +32,23 @@ public class SplashActivity extends AppCompatActivity {
         arBtn = findViewById(R.id.ar_btn);
         enBtn = findViewById(R.id.en_btn);
 
-        arBtn.setOnClickListener(v -> {
-            LocaleHelper.changeLanguage(getBaseContext(), "ar");
-            navigateLogin();
-        });
-
-        enBtn.setOnClickListener(v -> {
-            LocaleHelper.changeLanguage(getBaseContext(), "en");
-            navigateLogin();
-        });
-
-        if (getLanguage(getBaseContext()).equals("sys")) {
-            choose_lang_cont.setVisibility(View.VISIBLE);
-        } else {
-            LocaleHelper.changeLanguage(SplashActivity.this, getLanguage(getBaseContext()));
-            navigateLoginTimer();
-        }
-
+//        arBtn.setOnClickListener(v -> {
+//            LocaleHelper.changeLanguage(getBaseContext(), "ar");
+//            navigateLogin();
+//        });
+//
+//        enBtn.setOnClickListener(v -> {
+//            LocaleHelper.changeLanguage(getBaseContext(), "en");
+//            navigateLogin();
+//        });
+//
+//        if (getLanguage(getBaseContext()).equals("sys")) {
+//            choose_lang_cont.setVisibility(View.VISIBLE);
+//        } else {
+//            LocaleHelper.changeLanguage(SplashActivity.this, getLanguage(getBaseContext()));
+//            navigateLoginTimer();
+//        }
+        navigateLoginTimer();
     }
 
     private void navigateLoginTimer() {

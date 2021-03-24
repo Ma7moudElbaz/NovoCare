@@ -22,13 +22,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.cat.novocare.language_utils.LanguageUtils.getLanguage;
+
 
 public class EduCenterFragment extends Fragment {
     @Override
@@ -52,7 +53,7 @@ public class EduCenterFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        lang = getLanguage(getContext());
+        lang = Locale.getDefault().toString();
 
         loading = view.findViewById(R.id.loading);
         newsRecycler = view.findViewById(R.id.recycler);

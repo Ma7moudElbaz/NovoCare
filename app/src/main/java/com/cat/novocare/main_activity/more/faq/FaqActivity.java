@@ -19,13 +19,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.cat.novocare.language_utils.LanguageUtils.getLanguage;
+
 
 public class FaqActivity extends AppCompatActivity {
 
@@ -46,7 +47,7 @@ public class FaqActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq);
 
-        lang = getLanguage(getBaseContext());
+        lang = Locale.getDefault().toString();
 
         loading = findViewById(R.id.loading);
         faqRecycler = findViewById(R.id.recycler);

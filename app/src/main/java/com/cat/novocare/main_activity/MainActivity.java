@@ -8,9 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.R;
-import com.cat.novocare.language_utils.BaseActivity;
-import com.cat.novocare.language_utils.LanguageUtils;
 import com.cat.novocare.main_activity.edu_center.EduCenterFragment;
 import com.cat.novocare.main_activity.home.HomeFragment;
 import com.cat.novocare.main_activity.locator.LocatorFragment;
@@ -19,7 +18,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Locale;
 
-public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends LocalizationActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
+    public void setMore() {
+        if (!(bottomNavigationView.getSelectedItemId() == R.id.navigation_more)) {
+
+            bottomNavigationView.setSelectedItemId(R.id.navigation_more);
+        }
+    }
 
 
     public void setContentFragment(Fragment fragment) {
@@ -37,12 +43,12 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 
 
         Log.e("TAG", Locale.getDefault().toString());
-        Log.e("TAG", LanguageUtils.getLanguage(this));
 
-        setContentFragment(new HomeFragment());
 
         bottomNavigationView = findViewById(R.id.btm_nav);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
+
+        setContentFragment(new HomeFragment());
     }
 
     @Override
