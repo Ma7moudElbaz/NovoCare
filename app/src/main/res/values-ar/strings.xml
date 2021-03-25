@@ -25,6 +25,6 @@
     <string name="add_name">أضف الاسم</string>
     <string name="message">رسالتك</string>
     <string name="send">ارسل</string>
-    <string name="fill_fields">Fill all fields</string>
-    <string name="email_sent">Email sent successfully</string>
+    <string name="fill_fields">أملأ كل الحقول</string>
+    <string name="email_sent">تم الارسال بنجاح</string>
 </resources>
