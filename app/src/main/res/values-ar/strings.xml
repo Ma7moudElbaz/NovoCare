@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="more">المزيد</string>
-    <string name="educenter">الأخبار</string>
+    <string name="edu_center">الأخبار</string>
     <string name="locator">المساعد</string>
     <string name="home">الرئيسيه</string>
     <string name="welcome">مرحباً</string>
@@ -16,4 +16,15 @@
     <string name="network_error">خطأ في الاتصال بالانترنت …</string>
     <string name="contact_novo">تواصل معنا الآن</string>
     <string name="contact_us">تواصل معنا</string>
+    <string name="name">الأسم</string>
+    <string name="select_contact_way">تواصل معنا عبر</string>
+    <string name="video_call">مكالمه فيديو</string>
+    <string name="chat">محادثه</string>
+    <string name="email">البريد الالكتروني</string>
+    <string name="start_call">تواصل الآن</string>
+    <string name="add_name">أضف الاسم</string>
+    <string name="message">رسالتك</string>
+    <string name="send">ارسل</string>
+    <string name="fill_fields">Fill all fields</string>
+    <string name="email_sent">Email sent successfully</string>
 </resources>

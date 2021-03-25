@@ -100,12 +100,12 @@ public class EduCenterFragment extends Fragment {
     public void setNews(JSONArray list) {
         try {
             for (int i = 0; i < list.length(); i++) {
-                JSONObject currentobject = list.getJSONObject(i);
-                final String title = currentobject.getString("title");
-                final String caption = currentobject.getString("caption");
-                final String imageUrl = currentobject.getString("image");
-                final String content = currentobject.getString("text");
-                final String date = currentobject.getString("created_at");
+                JSONObject currentObject = list.getJSONObject(i);
+                final String title = currentObject.getString("title");
+                final String caption = currentObject.getString("caption");
+                final String imageUrl = currentObject.getString("image");
+                final String content = currentObject.getString("text");
+                final String date = currentObject.getString("created_at");
 
                 news_list.add(new News_item(title, caption, imageUrl, content, date));
 

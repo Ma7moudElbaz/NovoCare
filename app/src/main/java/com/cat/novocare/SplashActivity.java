@@ -30,18 +30,18 @@ public class SplashActivity extends LocalizationActivity {
         enBtn = findViewById(R.id.en_btn);
 
         arBtn.setOnClickListener(v -> {
-            LanguageEnit.initLanguage(getBaseContext());
+            LanguageInit.initLanguage(getBaseContext());
             setLanguage("ar");
             navigateLogin();
         });
 
         enBtn.setOnClickListener(v -> {
-            LanguageEnit.initLanguage(getBaseContext());
+            LanguageInit.initLanguage(getBaseContext());
             setLanguage("en");
             navigateLogin();
         });
 
-        if (LanguageEnit.getLanguageInit(getBaseContext())) {
+        if (LanguageInit.getLanguageInit(getBaseContext())) {
             navigateLoginTimer();
         } else {
             choose_lang_cont.setVisibility(View.VISIBLE);

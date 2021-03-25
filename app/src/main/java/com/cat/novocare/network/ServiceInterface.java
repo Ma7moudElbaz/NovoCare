@@ -1,8 +1,13 @@
 package com.cat.novocare.network;
 
+import java.util.Map;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.FieldMap;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ServiceInterface {
@@ -24,5 +29,9 @@ public interface ServiceInterface {
 
     @GET("privacy")
     Call<ResponseBody> getPrivacy(@Query("lang") String lang);
+
+    @POST("contact/store")
+    @FormUrlEncoded
+    Call<ResponseBody> sendEmail(@FieldMap Map<String, String> map);
 
 }

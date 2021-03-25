@@ -3,7 +3,7 @@ package com.cat.novocare;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class LanguageEnit {
+public class LanguageInit {
 
     private static final String SELECTED_LANGUAGE = "Locale.Helper.Selected.Language";
 
