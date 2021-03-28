@@ -38,7 +38,7 @@ public class LocatorFragment extends Fragment {
         loading = view.findViewById(R.id.loading);
 
 
-        url = "https://www.google.com.eg/";
+        url = "https://novolocator.com";
 
 
 
