@@ -1,7 +1,6 @@
 package com.cat.novocare.main_activity.home;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.R;
 import com.cat.novocare.network.Webservice;
 
@@ -24,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ContactEmailActivity extends AppCompatActivity {
+public class ContactEmailActivity extends LocalizationActivity {
 
     EditText email, message;
     TextView sendBtn;
