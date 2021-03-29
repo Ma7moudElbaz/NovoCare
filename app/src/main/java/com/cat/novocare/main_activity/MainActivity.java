@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.WindowManager;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.R;
@@ -39,6 +40,7 @@ public class MainActivity extends LocalizationActivity implements BottomNavigati
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_main);
 
 
