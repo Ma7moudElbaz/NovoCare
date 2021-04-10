@@ -1,7 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="android:statusBarColor" tools:targetApi="lollipop"> @color/white </item>
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -12,7 +14,7 @@
 
 
 <!--        <item name="android:windowTranslucentStatus">true</item>-->
-        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+<!--        <item name="android:windowDrawsSystemBarBackgrounds">false</item>-->
 
     </style>
 
