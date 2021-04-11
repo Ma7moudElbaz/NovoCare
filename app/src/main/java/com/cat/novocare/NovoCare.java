@@ -10,6 +10,8 @@ import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate;
 
 import java.util.Locale;
 
+import io.customerly.Customerly;
+
 public class NovoCare extends Application {
     final LocalizationApplicationDelegate localizationDelegate = new LocalizationApplicationDelegate();
 
@@ -29,5 +31,11 @@ public class NovoCare extends Application {
     @Override
     public Context getApplicationContext() {
         return localizationDelegate.getApplicationContext(super.getApplicationContext());
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Customerly.configure(this, "6284d5e0");
     }
 }

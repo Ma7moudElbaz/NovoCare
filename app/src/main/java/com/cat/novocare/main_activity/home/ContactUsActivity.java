@@ -15,6 +15,8 @@ import androidx.core.content.ContextCompat;
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.R;
 
+import io.customerly.Customerly;
+
 
 public class ContactUsActivity extends LocalizationActivity {
 
@@ -107,7 +109,10 @@ public class ContactUsActivity extends LocalizationActivity {
             Toast.makeText(this, R.string.add_name, Toast.LENGTH_SHORT).show();
         } else if (selectedItem == 0) {
             Toast.makeText(this, R.string.select_contact_way, Toast.LENGTH_SHORT).show();
-        } else if (selectedItem == 3) {
+        }else if (selectedItem == 2){
+//            Customerly.openSupport(ContactUsActivity.this);
+        }
+        else if (selectedItem == 3) {
             Intent i = new Intent(getBaseContext(), ContactEmailActivity.class);
             i.putExtra("name", nameTxt);
             startActivity(i);
