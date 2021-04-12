@@ -113,7 +113,7 @@ public class ContactUsActivity extends LocalizationActivity {
             Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cat-sw.com/clickdesk/customerly.php"));
             startActivity(i);
         }else if (selectedItem == 2){
-            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cat-sw.com/clickdesk/"));
+            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cat-sw.com/clickdesk/customerly.php"));
             startActivity(i);
         }
         else if (selectedItem == 3) {
