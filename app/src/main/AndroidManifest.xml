@@ -7,6 +7,11 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name=".NovoCare"
         android:allowBackup="false"
@@ -18,8 +23,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-        <activity android:name=".main_activity.home.ContactEmailActivity"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".main_activity.home.ContactUsChatActivity"></activity>
+        <activity
+            android:name=".main_activity.home.ContactEmailActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".main_activity.home.ContactUsActivity"
             android:screenOrientation="portrait" />

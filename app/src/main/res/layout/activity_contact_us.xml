@@ -77,7 +77,8 @@
                 android:layout_marginTop="20dp"
                 android:baselineAligned="false"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:weightSum="3"
+                android:gravity="center">
 
                 <LinearLayout
                     android:id="@+id/video_call"
@@ -88,7 +89,8 @@
                     android:background="@drawable/gray_border_curved_bg"
                     android:orientation="vertical"
                     android:paddingTop="10dp"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/video_call_img"
@@ -182,7 +184,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/blue_button_radius_bg"
+                android:background="@drawable/blue_button_bg"
                 android:gravity="center"
                 android:padding="15dp"
                 android:text="@string/start_call"

@@ -3,7 +3,7 @@
     <string name="english" translatable="false">English</string>
     <string name="arabic" translatable="false">العربية</string>
     <string name="date_dummy" translatable="false">15-8-2020</string>
-    <string name="choose_lang_ar" translatable="false">أختر اللغه</string>
+    <string name="choose_lang_ar" translatable="false">أختر اللغة</string>
     <string name="choose_lang_en" translatable="false">Please select the language</string>
 
     <string name="text_dummy" translatable="false">AMD  EQUIPPED TO WIN GAME  EQUIPPED TO WIN GAME  EQUIPPED TO WIN GAME BUNDLE</string>

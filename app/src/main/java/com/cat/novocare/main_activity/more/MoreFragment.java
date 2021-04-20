@@ -76,13 +76,13 @@ public class MoreFragment extends Fragment {
     private void setLangButtons(String lang) {
 
         if (lang.equals("ar")) {
-            arBtn.setBackground(ContextCompat.getDrawable(Objects.requireNonNull(getContext()), R.drawable.blue_button_bg));
+            arBtn.setBackground(ContextCompat.getDrawable(Objects.requireNonNull(getContext()), R.drawable.blue_button_lang_bg));
             arBtn.setTextColor(ContextCompat.getColor(getContext(), R.color.white));
 
             enBtn.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.gray_border_button_bg));
             enBtn.setTextColor(ContextCompat.getColor(getContext(), R.color.dark_blue));
         } else {
-            enBtn.setBackground(ContextCompat.getDrawable(Objects.requireNonNull(getContext()), R.drawable.blue_button_bg));
+            enBtn.setBackground(ContextCompat.getDrawable(Objects.requireNonNull(getContext()), R.drawable.blue_button_lang_bg));
             enBtn.setTextColor(ContextCompat.getColor(getContext(), R.color.white));
 
             arBtn.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.gray_border_button_bg));

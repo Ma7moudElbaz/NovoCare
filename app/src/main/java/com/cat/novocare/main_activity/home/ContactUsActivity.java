@@ -110,10 +110,16 @@ public class ContactUsActivity extends LocalizationActivity {
         } else if (selectedItem == 0) {
             Toast.makeText(this, R.string.select_contact_way, Toast.LENGTH_SHORT).show();
         }else if (selectedItem == 1){
-            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cat-sw.com/clickdesk/customerly.php"));
+//            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cat-sw.com/clickdesk/customerly.php"));
+//            startActivity(i);
+            Intent i = new Intent(getBaseContext(), ContactUsChatActivity.class);
+            i.putExtra("name", nameTxt);
             startActivity(i);
         }else if (selectedItem == 2){
-            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cat-sw.com/clickdesk/customerly.php"));
+//            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cat-sw.com/clickdesk/customerly.php"));
+//            startActivity(i);
+            Intent i = new Intent(getBaseContext(), ContactUsChatActivity.class);
+            i.putExtra("name", nameTxt);
             startActivity(i);
         }
         else if (selectedItem == 3) {
