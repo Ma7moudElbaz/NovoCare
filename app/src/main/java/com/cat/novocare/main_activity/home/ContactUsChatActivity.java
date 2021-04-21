@@ -22,6 +22,7 @@ public class ContactUsChatActivity extends AppCompatActivity {
     ProgressBar loading;
     String name;
     String url;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +33,14 @@ public class ContactUsChatActivity extends AppCompatActivity {
         name = getIntent().getStringExtra("name");
 
 
-        url = "https://cat-sw.com/clickdesk/customerly.php/?name="+name;
+        url = "https://cat-sw.com/clickdesk/customerly.php/?name=" + name;
 
 
         webView.clearCache(true);
         webView.clearHistory();
+
+        webView.getSettings().setAppCacheEnabled(false);
+        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setLoadWithOverviewMode(true);
@@ -44,16 +48,20 @@ public class ContactUsChatActivity extends AppCompatActivity {
 
         webView.getSettings().setDomStorageEnabled(true);
         webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        webView.getSettings().setSupportMultipleWindows(true);
+        webView.getSettings().setSupportMultipleWindows(false);
 
-        webView.getSettings().setAppCacheEnabled(false);
-        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
         webView.setWebViewClient(new WebViewClient() {
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                loading.setVisibility(View.VISIBLE);
-                view.loadUrl(url);
+                Log.e("TAG", url);
+                if (url.contains("realtime.customerly.io/call")) {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(browserIntent);
+                } else {
+                    loading.setVisibility(View.VISIBLE);
+                    view.loadUrl(url);
+                }
                 return true;
             }
 
@@ -65,16 +73,20 @@ public class ContactUsChatActivity extends AppCompatActivity {
 
         });
 
+
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
-            public boolean onCreateWindow(WebView view, boolean dialog, boolean userGesture, android.os.Message resultMsg)
-            {
-                WebView.HitTestResult result = view.getHitTestResult();
+            public boolean onCreateWindow(WebView view, boolean dialog, boolean userGesture, android.os.Message resultMsg) {
+//                WebView.HitTestResult result = view.getHitTestResult();
 //                String data = result.getExtra();
-//                Log.e("Data Url", data );
 //                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(data));
 //                startActivity(browserIntent);
-                return false;
+//                return false;
+
+                WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
+                transport.setWebView(webView);
+                resultMsg.sendToTarget();
+                return true;
             }
         });
 
