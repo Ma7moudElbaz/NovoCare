@@ -26,6 +26,7 @@
                 android:layout_width="95dp"
                 android:layout_height="95dp"
                 android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
                 android:contentDescription="@string/image_description"/>
 
         </androidx.cardview.widget.CardView>

@@ -15,8 +15,6 @@ import androidx.core.content.ContextCompat;
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.R;
 
-import io.customerly.Customerly;
-
 
 public class ContactUsActivity extends LocalizationActivity {
 

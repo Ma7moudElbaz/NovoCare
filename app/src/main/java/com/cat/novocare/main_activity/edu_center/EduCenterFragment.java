@@ -104,10 +104,11 @@ public class EduCenterFragment extends Fragment {
                 final String title = currentObject.getString("title");
                 final String caption = currentObject.getString("caption");
                 final String imageUrl = currentObject.getString("image");
+                final String videoUrl = currentObject.getString("video");
                 final String content = currentObject.getString("text");
                 final String date = currentObject.getString("created_at");
 
-                news_list.add(new News_item(title, caption, imageUrl, content, date));
+                news_list.add(new News_item(title, caption, imageUrl,videoUrl, content, date));
 
             }
 

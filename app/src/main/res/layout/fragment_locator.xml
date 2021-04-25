@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="50dp"
-            android:text="@string/locator"
+            android:text="@string/novo_locator"
             android:textColor="@color/white"
             android:textSize="40sp"
             android:textStyle="bold" />
