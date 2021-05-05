@@ -3,11 +3,14 @@ package com.cat.novocare.main_activity.home;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -47,19 +50,21 @@ public class ContactUsChatActivity extends AppCompatActivity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setAllowFileAccessFromFileURLs(true);
+        webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
 
         webView.getSettings().setDomStorageEnabled(true);
         webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         webView.getSettings().setSupportMultipleWindows(false);
+        webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
 
         webView.setWebViewClient(new WebViewClient() {
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Log.e("TAG", url);
-                if (url.contains("realtime.customerly.io/call")) {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    startActivity(browserIntent);
+                if (url.contains(" https://realtime.customerly.io/goodbye")) {
+                    onBackPressed();
                 } else {
                     loading.setVisibility(View.VISIBLE);
                     view.loadUrl(url);
@@ -89,6 +94,27 @@ public class ContactUsChatActivity extends AppCompatActivity {
                 transport.setWebView(webView);
                 resultMsg.sendToTarget();
                 return true;
+            }
+
+            @Override
+            public void onPermissionRequest(PermissionRequest request) {
+                Log.d("TAG", "onPermissionRequest");
+                ContactUsChatActivity.this.runOnUiThread(new Runnable() {
+                    @TargetApi(Build.VERSION_CODES.M)
+                    @Override
+                    public void run() {
+                        Log.d("TAG", request.getOrigin().toString());
+                        request.grant(request.getResources());
+
+//                        if(request.getOrigin().toString().equals("file:///")) {
+//                            Log.d("TAG", "GRANTED");
+//                            request.grant(request.getResources());
+//                        } else {
+//                            Log.d("TAG", "DENIED");
+//                            request.deny();
+//                        }
+                    }
+                });
             }
         });
 

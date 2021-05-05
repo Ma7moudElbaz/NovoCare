@@ -1,6 +1,7 @@
 package com.cat.novocare.main_activity.home;
 
 
+import android.Manifest;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,13 +11,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.R;
 
+import java.util.List;
 
-public class ContactUsActivity extends LocalizationActivity {
+import pub.devrel.easypermissions.EasyPermissions;
+
+
+public class ContactUsActivity extends LocalizationActivity implements EasyPermissions.PermissionCallbacks {
 
     ImageView call, back;
     TextView startCallBtn;
@@ -26,6 +32,11 @@ public class ContactUsActivity extends LocalizationActivity {
     EditText name;
 
     int selectedItem = 0;
+
+    private static final int REQUEST_CAMERA_PERMISSION = 1001;
+    private static final int REQUEST_AUDIO_PERMISSION = 1002;
+
+    String[] perms = {Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,17 +119,18 @@ public class ContactUsActivity extends LocalizationActivity {
         } else if (selectedItem == 0) {
             Toast.makeText(this, R.string.select_contact_way, Toast.LENGTH_SHORT).show();
         }else if (selectedItem == 1){
-//            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cat-sw.com/clickdesk/customerly.php"));
+//            Intent i = new Intent(getBaseContext(), ContactUsChatActivity.class);
+//            i.putExtra("name", nameTxt);
 //            startActivity(i);
-            Intent i = new Intent(getBaseContext(), ContactUsChatActivity.class);
-            i.putExtra("name", nameTxt);
-            startActivity(i);
         }else if (selectedItem == 2){
-//            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cat-sw.com/clickdesk/customerly.php"));
-//            startActivity(i);
-            Intent i = new Intent(getBaseContext(), ContactUsChatActivity.class);
-            i.putExtra("name", nameTxt);
-            startActivity(i);
+            if (EasyPermissions.hasPermissions(this,perms)){
+                Intent i = new Intent(getBaseContext(), ContactUsChatActivity.class);
+                i.putExtra("name", nameTxt);
+                startActivity(i);
+            }else {
+                grantPermissions();
+            }
+
         }
         else if (selectedItem == 3) {
             Intent i = new Intent(getBaseContext(), ContactEmailActivity.class);
@@ -126,5 +138,20 @@ public class ContactUsActivity extends LocalizationActivity {
             startActivity(i);
         }
 
+    }
+
+    private void grantPermissions(){
+        EasyPermissions.requestPermissions(this, "Permission request",
+                REQUEST_CAMERA_PERMISSION, perms);
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+        startCall();
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+        Toast.makeText(this, "You must grant all permissions to use ths feature", Toast.LENGTH_SHORT).show();
     }
 }
