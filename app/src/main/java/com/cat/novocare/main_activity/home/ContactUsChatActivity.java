@@ -61,7 +61,7 @@ public class ContactUsChatActivity extends AppCompatActivity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Log.e("TAG", url);
-                if (url.contains(" https://realtime.customerly.io/goodbye")) {
+                if (url.contains("goodbye")) {
                     onBackPressed();
                 } else {
                     loading.setVisibility(View.VISIBLE);
