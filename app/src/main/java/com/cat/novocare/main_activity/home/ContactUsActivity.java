@@ -99,17 +99,17 @@ public class ContactUsActivity extends LocalizationActivity implements EasyPermi
     }
 
     private void resetActive() {
-        videoCall.setBackground(ContextCompat.getDrawable(getBaseContext(), R.drawable.gray_border_curved_bg));
-        videoCallImg.setColorFilter(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        videoCallTxt.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        videoCall.setBackground(ContextCompat.getDrawable(getBaseContext(), R.drawable.blue_border_button_bg));
+        videoCallImg.setColorFilter(ContextCompat.getColor(getBaseContext(), R.color.colorPrimaryDark));
+        videoCallTxt.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.colorPrimaryDark));
 
-        chat.setBackground(ContextCompat.getDrawable(getBaseContext(), R.drawable.gray_border_curved_bg));
-        chatImg.setColorFilter(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        chatTxt.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        chat.setBackground(ContextCompat.getDrawable(getBaseContext(), R.drawable.blue_border_button_bg));
+        chatImg.setColorFilter(ContextCompat.getColor(getBaseContext(), R.color.colorPrimaryDark));
+        chatTxt.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.colorPrimaryDark));
 
-        email.setBackground(ContextCompat.getDrawable(getBaseContext(), R.drawable.gray_border_curved_bg));
-        emailImg.setColorFilter(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        emailTxt.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        email.setBackground(ContextCompat.getDrawable(getBaseContext(), R.drawable.blue_border_button_bg));
+        emailImg.setColorFilter(ContextCompat.getColor(getBaseContext(), R.color.colorPrimaryDark));
+        emailTxt.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.colorPrimaryDark));
     }
 
     private void startCall() {
