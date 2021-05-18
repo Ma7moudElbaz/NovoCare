@@ -8,7 +8,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.webkit.PermissionRequest;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -35,15 +38,15 @@ public class ContactUsChatActivity extends AppCompatActivity {
         loading = findViewById(R.id.loading);
         name = getIntent().getStringExtra("name");
 
+        url = "https://cat-sw.com/clickdesk/customerly.php/?name=" + name + "&email=" + name + "@gmail.com";
 
-        url = "https://cat-sw.com/clickdesk/customerly.php/?name=" + name;
+        CookieManager.getInstance().setAcceptThirdPartyCookies(webView, false);
+        webView.getSettings().setAppCacheEnabled(false);
 
-
+        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
         webView.clearCache(true);
         webView.clearHistory();
 
-        webView.getSettings().setAppCacheEnabled(false);
-        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setLoadWithOverviewMode(true);
@@ -61,18 +64,18 @@ public class ContactUsChatActivity extends AppCompatActivity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Log.e("TAG", url);
-                if (url.contains("goodbye")) {
-                    onBackPressed();
-                } else {
-                    loading.setVisibility(View.VISIBLE);
-                    view.loadUrl(url);
-                }
+                loading.setVisibility(View.VISIBLE);
+                view.loadUrl(url);
+
                 return true;
             }
 
             @Override
             public void onPageFinished(WebView view, final String url) {
                 loading.setVisibility(View.GONE);
+                if (url.contains("goodbye")) {
+                    onBackPressed();
+                }
             }
 
 
