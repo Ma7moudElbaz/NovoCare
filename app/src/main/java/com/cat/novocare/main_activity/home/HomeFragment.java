@@ -24,7 +24,6 @@ import com.cat.novocare.network.Webservice;
 import org.json.JSONObject;
 
 import java.util.Locale;
-import java.util.Objects;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -81,7 +80,7 @@ public class HomeFragment extends Fragment {
                     String text = dataObject.getString("caption");
 
                     homeText.setText(Html.fromHtml(text));
-                    Glide.with(Objects.requireNonNull(getContext())).load(imageUrl).placeholder(R.drawable.image_loading).into(homeImage);
+                    Glide.with(requireContext()).load(imageUrl).placeholder(R.drawable.image_loading).into(homeImage);
 
                     loading.setVisibility(View.GONE);
 
