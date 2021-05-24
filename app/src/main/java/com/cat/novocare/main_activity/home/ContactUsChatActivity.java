@@ -3,9 +3,7 @@ package com.cat.novocare.main_activity.home;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -104,12 +102,9 @@ public class ContactUsChatActivity extends AppCompatActivity {
             @Override
             public void onPermissionRequest(PermissionRequest request) {
                 Log.d("TAG", "onPermissionRequest");
-                ContactUsChatActivity.this.runOnUiThread(new Runnable() {
-                    @TargetApi(Build.VERSION_CODES.M)
-                    @Override
-                    public void run() {
-                        Log.d("TAG", request.getOrigin().toString());
-                        request.grant(request.getResources());
+                ContactUsChatActivity.this.runOnUiThread(() -> {
+                    Log.d("TAG", request.getOrigin().toString());
+                    request.grant(request.getResources());
 
 //                        if(request.getOrigin().toString().equals("file:///")) {
 //                            Log.d("TAG", "GRANTED");
@@ -118,7 +113,6 @@ public class ContactUsChatActivity extends AppCompatActivity {
 //                            Log.d("TAG", "DENIED");
 //                            request.deny();
 //                        }
-                    }
                 });
             }
         });

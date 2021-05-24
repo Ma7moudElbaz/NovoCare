@@ -34,9 +34,8 @@ public class ContactUsActivity extends LocalizationActivity implements EasyPermi
     int selectedItem = 0;
 
     private static final int REQUEST_CAMERA_PERMISSION = 1001;
-    private static final int REQUEST_AUDIO_PERMISSION = 1002;
 
-    String[] perms = {Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO};
+    final String[] perms = {Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,10 +117,6 @@ public class ContactUsActivity extends LocalizationActivity implements EasyPermi
             Toast.makeText(this, R.string.add_name, Toast.LENGTH_SHORT).show();
         } else if (selectedItem == 0) {
             Toast.makeText(this, R.string.select_contact_way, Toast.LENGTH_SHORT).show();
-        }else if (selectedItem == 1){
-//            Intent i = new Intent(getBaseContext(), ContactUsChatActivity.class);
-//            i.putExtra("name", nameTxt);
-//            startActivity(i);
         }else if (selectedItem == 2){
             if (EasyPermissions.hasPermissions(this,perms)){
                 Intent i = new Intent(getBaseContext(), ContactUsChatActivity.class);

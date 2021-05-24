@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-        <activity android:name=".ThankYouActivity"></activity>
+        <activity android:name=".ThankYouActivity" />
         <activity android:name=".main_activity.home.ContactUsChatActivity" />
         <activity
             android:name=".main_activity.home.ContactEmailActivity"
