@@ -35,4 +35,7 @@
     <string name="send">Send</string>
     <string name="fill_fields">Fill all fields</string>
     <string name="email_sent">Email sent successfully</string>
+    <string name="thank_you">Thank you !</string>
+    <string name="for_contacting_novo_nordisk">For contacting Novo Nordisk</string>
+    <string name="dismiss">dismiss</string>
 </resources>

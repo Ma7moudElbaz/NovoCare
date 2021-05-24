@@ -27,4 +27,7 @@
     <string name="send">ارسل</string>
     <string name="fill_fields">أملأ كل الحقول</string>
     <string name="email_sent">تم الارسال بنجاح</string>
+    <string name="thank_you">شكراً</string>
+    <string name="for_contacting_novo_nordisk">لتواصلك مع نوڤو نورديسك</string>
+    <string name="dismiss">إغلاق</string>
 </resources>

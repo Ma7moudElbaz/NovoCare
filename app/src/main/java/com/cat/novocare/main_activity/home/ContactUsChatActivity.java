@@ -4,14 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
 import android.webkit.PermissionRequest;
-import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -19,6 +18,7 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.cat.novocare.R;
+import com.cat.novocare.ThankYouActivity;
 
 public class ContactUsChatActivity extends AppCompatActivity {
 
@@ -27,6 +27,7 @@ public class ContactUsChatActivity extends AppCompatActivity {
     ProgressBar loading;
     String name;
     String url;
+
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -74,7 +75,10 @@ public class ContactUsChatActivity extends AppCompatActivity {
             public void onPageFinished(WebView view, final String url) {
                 loading.setVisibility(View.GONE);
                 if (url.contains("goodbye")) {
-                    onBackPressed();
+                    Intent i = new Intent(ContactUsChatActivity.this, ThankYouActivity.class);
+                    startActivity(i);
+                    finish();
+//                    onBackPressed();
                 }
             }
 
