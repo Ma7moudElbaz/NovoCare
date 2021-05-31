@@ -23,7 +23,7 @@ public class ContactUsChatActivity extends AppCompatActivity {
 
     WebView webView;
     ProgressBar loading;
-    String name;
+    String name,email;
     String url;
 
 
@@ -37,7 +37,9 @@ public class ContactUsChatActivity extends AppCompatActivity {
         loading = findViewById(R.id.loading);
         name = getIntent().getStringExtra("name");
 
-        url = "https://cat-sw.com/clickdesk/customerly.php/?name=" + name + "&email=" + name + "@gmail.com";
+        email = name.replace(' ', '_')+"@admin.com";
+
+        url = "https://cat-sw.com/clickdesk/customerly.php/?name=" + name + "&email=" + email;
 
         CookieManager.getInstance().setAcceptThirdPartyCookies(webView, false);
         webView.getSettings().setAppCacheEnabled(false);
