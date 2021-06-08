@@ -35,9 +35,10 @@ public class ContactUsChatActivity extends AppCompatActivity {
 
         webView = findViewById(R.id.webView);
         loading = findViewById(R.id.loading);
-        name = getIntent().getStringExtra("name");
+        name = getIntent().getStringExtra("name").trim();
 
-        email = name.replace(' ', '_')+"@admin.com";
+        email = replaceArabic(name).replace(' ', '_')+"@domain.com";
+
 
         url = "https://cat-sw.com/clickdesk/customerly.php/?name=" + name + "&email=" + email;
 
@@ -120,5 +121,27 @@ public class ContactUsChatActivity extends AppCompatActivity {
         });
 
         webView.loadUrl(url);
+    }
+
+
+
+
+    private static boolean hasArabic(String s) {
+        for (int i = 0; i < s.length();) {
+            int c = s.codePointAt(i);
+            if (c >= 0x0600 && c <= 0x06E0)
+                return true;
+            i += Character.charCount(c);
+        }
+        return false;
+    }
+
+    private String replaceArabic(String s){
+        if (hasArabic(s)){
+            int randomInt = (int)(10000.0 * Math.random());
+            return "arabic"+randomInt;
+        }else {
+            return s;
+        }
     }
 }
