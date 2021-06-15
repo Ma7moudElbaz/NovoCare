@@ -3,8 +3,18 @@ plugins {
 }
 
 android {
+
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
+
+    signingConfigs {
+        release {
+            keyAlias 'NovoCare'
+            keyPassword 'NovoCare@123'
+            storeFile file('Desktop\\androidProjects\\NovoCare\\NovoCare.jks')
+            storePassword 'NovoCare@123'
+        }
+    }
 
     defaultConfig {
         applicationId "com.cat.novocare"
@@ -12,8 +22,8 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
 
     buildTypes {
@@ -40,7 +50,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //RecyclerView
-    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
@@ -60,6 +70,10 @@ dependencies {
 
     //easy permission
     implementation 'pub.devrel:easypermissions:3.0.0'
+
+
+    //round Image
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 
 }
 repositories {
