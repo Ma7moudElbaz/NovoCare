@@ -6,7 +6,6 @@
     <string name="home">الرئيسيه</string>
     <string name="welcome">مرحباً</string>
     <string name="novo_locator">المساعد</string>
-
     <string name="faq">الأسئلة المتكررة</string>
     <string name="about_us">عن الشركة</string>
     <string name="terms_of_use">شروط الأستخدام</string>
@@ -30,4 +29,5 @@
     <string name="thank_you">شكراً</string>
     <string name="for_contacting_novo_nordisk">لتواصلك مع نوڤو نورديسك</string>
     <string name="dismiss">إغلاق</string>
+    <string name="send_email_form">إرسال بريد إلكتروني</string>
 </resources>

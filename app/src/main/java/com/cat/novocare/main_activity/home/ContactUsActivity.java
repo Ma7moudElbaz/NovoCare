@@ -87,6 +87,7 @@ public class ContactUsActivity extends LocalizationActivity implements EasyPermi
         chat.setBackground(ContextCompat.getDrawable(getBaseContext(), R.drawable.light_blue_bg));
         chatImg.setColorFilter(ContextCompat.getColor(getBaseContext(), R.color.white));
         chatTxt.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.white));
+        startCallBtn.setText(R.string.start_call);
     }
 
     private void setEmailActive() {
@@ -95,6 +96,7 @@ public class ContactUsActivity extends LocalizationActivity implements EasyPermi
         email.setBackground(ContextCompat.getDrawable(getBaseContext(), R.drawable.light_blue_bg));
         emailImg.setColorFilter(ContextCompat.getColor(getBaseContext(), R.color.white));
         emailTxt.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.white));
+        startCallBtn.setText(R.string.send_email_form);
     }
 
     private void resetActive() {

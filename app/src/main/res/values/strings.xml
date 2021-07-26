@@ -2,10 +2,10 @@
     <string name="app_name" translatable="false">Novo Care</string>
     <string name="english" translatable="false">English</string>
     <string name="arabic" translatable="false">العربية</string>
-    <string name="date_dummy" translatable="false">15-8-2020</string>
     <string name="choose_lang_ar" translatable="false">أختر اللغة</string>
     <string name="choose_lang_en" translatable="false">Please select the language</string>
 
+    <string name="date_dummy" translatable="false">15-8-2020</string>
     <string name="text_dummy" translatable="false">AMD  EQUIPPED TO WIN GAME  EQUIPPED TO WIN GAME  EQUIPPED TO WIN GAME BUNDLE</string>
     <string name="faq_dummy" translatable="false">what is  Bla bla bla??</string>
 
@@ -38,4 +38,5 @@
     <string name="thank_you">Thank you !</string>
     <string name="for_contacting_novo_nordisk">For contacting Novo Nordisk</string>
     <string name="dismiss">dismiss</string>
+    <string name="send_email_form">Send Email</string>
 </resources>
