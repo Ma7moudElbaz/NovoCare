@@ -19,13 +19,10 @@ import com.cat.novocare.R;
 import com.cat.novocare.ThankYouActivity;
 
 public class ContactUsChatActivity extends AppCompatActivity {
-
-
     WebView webView;
     ProgressBar loading;
-    String name,email;
+    String name, email;
     String url;
-
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -37,11 +34,11 @@ public class ContactUsChatActivity extends AppCompatActivity {
         loading = findViewById(R.id.loading);
         name = getIntent().getStringExtra("name").trim();
 
-        email = replaceArabic(name).replace(' ', '_')+"@domain.com";
+        email = replaceArabic(name).replace(' ', '_') + "@domain.com";
 
 
-        url = "https://cat-sw.com/clickdesk/customerly.php/?name=" + name + "&email=" + email;
-
+//        url = "https://cat-sw.com/clickdesk/customerly.php/?name=" + name + "&email=" + email;
+        url = "https://test-chat.vax.solutions/api/send-request/?name=HamdikoTet&email=mwqeqwe22da299@sdfsdf9fsf.cooooo";
         CookieManager.getInstance().setAcceptThirdPartyCookies(webView, false);
         webView.getSettings().setAppCacheEnabled(false);
 
@@ -82,8 +79,6 @@ public class ContactUsChatActivity extends AppCompatActivity {
 //                    onBackPressed();
                 }
             }
-
-
         });
 
 
@@ -124,10 +119,8 @@ public class ContactUsChatActivity extends AppCompatActivity {
     }
 
 
-
-
     private static boolean hasArabic(String s) {
-        for (int i = 0; i < s.length();) {
+        for (int i = 0; i < s.length(); ) {
             int c = s.codePointAt(i);
             if (c >= 0x0600 && c <= 0x06E0)
                 return true;
@@ -136,11 +129,11 @@ public class ContactUsChatActivity extends AppCompatActivity {
         return false;
     }
 
-    private String replaceArabic(String s){
-        if (hasArabic(s)){
-            int randomInt = (int)(10000.0 * Math.random());
-            return "arabic"+randomInt;
-        }else {
+    private String replaceArabic(String s) {
+        if (hasArabic(s)) {
+            int randomInt = (int) (10000.0 * Math.random());
+            return "arabic" + randomInt;
+        } else {
             return s;
         }
     }

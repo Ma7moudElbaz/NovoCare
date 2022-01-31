@@ -1,10 +1,12 @@
 package com.cat.novocare.main_activity.home;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.text.Html;
@@ -69,6 +71,7 @@ public class HomeFragment extends Fragment {
         loading.setVisibility(View.VISIBLE);
 
         Webservice.getInstance().getApi().getHome(lang).enqueue(new Callback<ResponseBody>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
 
@@ -78,7 +81,7 @@ public class HomeFragment extends Fragment {
                     JSONObject dataObject = responseObject.getJSONObject("data");
                     String imageUrl = dataObject.getString("image");
                     String text = dataObject.getString("caption");
-
+                    Html.fromHtml(text,Html.FROM_HTML_MODE_COMPACT);
                     homeText.setText(Html.fromHtml(text));
                     Glide.with(requireContext()).load(imageUrl).placeholder(R.drawable.image_loading).into(homeImage);
 
