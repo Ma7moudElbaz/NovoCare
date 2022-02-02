@@ -11,7 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
@@ -36,9 +35,6 @@ public class ContactUsActivity extends LocalizationActivity {
 
     int selectedItem = 0;
 
-    private static final int REQUEST_CAMERA_PERMISSION = 1001;
-
-    final String[] perms = {Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,7 +120,6 @@ public class ContactUsActivity extends LocalizationActivity {
 
         } else if (selectedItem == 3) {
             Intent i = new Intent(getBaseContext(), ContactEmailActivity.class);
-            i.putExtra("name", "nameTxt");
             startActivity(i);
         }
 
