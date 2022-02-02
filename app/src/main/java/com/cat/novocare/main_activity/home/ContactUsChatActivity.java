@@ -13,6 +13,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.cat.novocare.R;
@@ -21,8 +22,8 @@ import com.cat.novocare.ThankYouActivity;
 public class ContactUsChatActivity extends AppCompatActivity {
     WebView webView;
     ProgressBar loading;
-    String name, email;
     String url;
+    ImageView back;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -32,19 +33,17 @@ public class ContactUsChatActivity extends AppCompatActivity {
 
         webView = findViewById(R.id.webView);
         loading = findViewById(R.id.loading);
-        name = getIntent().getStringExtra("name").trim();
+        back = findViewById(R.id.back);
+        back.setOnClickListener(v -> onBackPressed());
 
-        email = replaceArabic(name).replace(' ', '_') + "@domain.com";
+        url = "https://test-chat.vax.solutions";
 
-
-//        url = "https://cat-sw.com/clickdesk/customerly.php/?name=" + name + "&email=" + email;
-        url = "https://test-chat.vax.solutions/api/send-request/?name=HamdikoTet&email=mwqeqwe22da299@sdfsdf9fsf.cooooo";
-        CookieManager.getInstance().setAcceptThirdPartyCookies(webView, false);
-        webView.getSettings().setAppCacheEnabled(false);
-
-        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
-        webView.clearCache(true);
-        webView.clearHistory();
+//        CookieManager.getInstance().setAcceptThirdPartyCookies(webView, false);
+//        webView.getSettings().setAppCacheEnabled(false);
+//
+//        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+//        webView.clearCache(true);
+//        webView.clearHistory();
 
 
         webView.getSettings().setJavaScriptEnabled(true);
@@ -58,8 +57,13 @@ public class ContactUsChatActivity extends AppCompatActivity {
         webView.getSettings().setSupportMultipleWindows(false);
         webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
 
-        webView.setWebViewClient(new WebViewClient() {
 
+
+
+        String myUA = "Android" + "Chrome/[.0-9]* Mobile";
+        webView.getSettings().setUserAgentString(myUA);
+
+        webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Log.e("TAG", url);
@@ -72,11 +76,10 @@ public class ContactUsChatActivity extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, final String url) {
                 loading.setVisibility(View.GONE);
-                if (url.contains("goodbye")) {
+                if (url.contains("disconnectChat")) {
                     Intent i = new Intent(ContactUsChatActivity.this, ThankYouActivity.class);
                     startActivity(i);
                     finish();
-//                    onBackPressed();
                 }
             }
         });
@@ -99,23 +102,17 @@ public class ContactUsChatActivity extends AppCompatActivity {
 
             @Override
             public void onPermissionRequest(PermissionRequest request) {
-                Log.d("TAG", "onPermissionRequest");
+                Log.d("Permission", "onPermissionRequest");
                 ContactUsChatActivity.this.runOnUiThread(() -> {
-                    Log.d("TAG", request.getOrigin().toString());
+                    Log.d("Permission", request.getOrigin().toString());
                     request.grant(request.getResources());
-
-//                        if(request.getOrigin().toString().equals("file:///")) {
-//                            Log.d("TAG", "GRANTED");
-//                            request.grant(request.getResources());
-//                        } else {
-//                            Log.d("TAG", "DENIED");
-//                            request.deny();
-//                        }
                 });
             }
         });
 
         webView.loadUrl(url);
+        CookieManager.getInstance().removeAllCookies(null);
+        CookieManager.getInstance().flush();
     }
 
 

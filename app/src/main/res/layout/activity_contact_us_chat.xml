@@ -3,9 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     tools:context=".main_activity.home.ContactUsChatActivity">
 
+    <RelativeLayout
+        android:id="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize">
+
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/image_description"
+            android:padding="5dp"
+            android:src="@drawable/ic_back_arrow"
+            app:tint="@color/dark_blue" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/light_gray" />
+    </RelativeLayout>
+
+
     <WebView
+        android:layout_below="@id/topPanel"
         android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

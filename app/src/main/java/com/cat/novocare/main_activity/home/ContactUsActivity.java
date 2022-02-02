@@ -110,6 +110,7 @@ public class ContactUsActivity extends LocalizationActivity {
                 public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
                     if (multiplePermissionsReport.areAllPermissionsGranted()) {
                         Intent i = new Intent(getBaseContext(), ContactUsChatActivity.class);
+//                        Intent i = new Intent(getBaseContext(), TestWebViewActivity.class);
                         startActivity(i);
                     }
                 }
