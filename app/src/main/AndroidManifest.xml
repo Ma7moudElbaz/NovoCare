@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cat.novocare">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -29,8 +28,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-        <activity android:name=".ThankYouActivity" />
-        <activity android:name=".main_activity.home.ContactUsChatActivity" />
+        <activity
+            android:name=".ThankYouActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".main_activity.home.ContactUsChatActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".main_activity.home.ContactEmailActivity"
             android:screenOrientation="portrait" />
@@ -53,6 +56,9 @@
             android:name=".main_activity.edu_center.NewsDetails"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".main_activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
@@ -62,9 +68,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".main_activity.MainActivity"
-            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -18,7 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Locale;
 
-public class MainActivity extends LocalizationActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends LocalizationActivity implements BottomNavigationView.OnItemSelectedListener {
 
     public void setMore() {
         if (!(bottomNavigationView.getSelectedItemId() == R.id.navigation_more)) {
@@ -26,7 +26,6 @@ public class MainActivity extends LocalizationActivity implements BottomNavigati
             bottomNavigationView.setSelectedItemId(R.id.navigation_more);
         }
     }
-
 
     public void setContentFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -39,15 +38,10 @@ public class MainActivity extends LocalizationActivity implements BottomNavigati
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_main);
 
-
-        Log.e("TAG", Locale.getDefault().toString());
-
-
         bottomNavigationView = findViewById(R.id.btm_nav);
-        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        bottomNavigationView.setOnItemSelectedListener(this);
 
         setContentFragment(new HomeFragment());
     }

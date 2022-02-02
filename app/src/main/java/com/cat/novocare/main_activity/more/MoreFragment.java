@@ -35,6 +35,7 @@ public class MoreFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        activity = (MainActivity) getActivity();
         arBtn = view.findViewById(R.id.ar_btn);
         enBtn = view.findViewById(R.id.en_btn);
         faq = view.findViewById(R.id.faq);
@@ -62,7 +63,6 @@ public class MoreFragment extends Fragment {
             Intent i = new Intent(getActivity(), PrivacyActivity.class);
             startActivity(i);
         });
-        activity = (MainActivity) getActivity();
 
         activity.setMore();
         setLangButtons(Locale.getDefault().toString());

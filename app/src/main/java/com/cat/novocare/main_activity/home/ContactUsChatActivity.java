@@ -16,10 +16,11 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.R;
 import com.cat.novocare.ThankYouActivity;
 
-public class ContactUsChatActivity extends AppCompatActivity {
+public class ContactUsChatActivity extends LocalizationActivity {
     WebView webView;
     ProgressBar loading;
     String url;

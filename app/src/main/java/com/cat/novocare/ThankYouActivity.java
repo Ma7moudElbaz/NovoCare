@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 
-public class ThankYouActivity extends AppCompatActivity {
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
+
+public class ThankYouActivity extends LocalizationActivity {
 
     Button dismiss;
     @Override
