@@ -62,11 +62,10 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
 
     //localisation
-    implementation 'com.akexorcist:localization:1.2.7'
+    implementation 'com.akexorcist:localization:1.2.10'
 
-    //easy permission
-    implementation 'pub.devrel:easypermissions:3.0.0'
-
+    //Permission Manager
+    implementation 'com.karumi:dexter:6.2.3'
 
     //round Image
     implementation 'com.makeramen:roundedimageview:2.3.0'

@@ -16,19 +16,22 @@ import androidx.core.content.ContextCompat;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.R;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.util.List;
 
-import pub.devrel.easypermissions.EasyPermissions;
 
-
-public class ContactUsActivity extends LocalizationActivity implements EasyPermissions.PermissionCallbacks {
+public class ContactUsActivity extends LocalizationActivity {
 
     ImageView call, back;
     TextView startCallBtn;
-    LinearLayout videoCall, chat, email;
-    ImageView videoCallImg, chatImg, emailImg;
-    TextView videoCallTxt, chatTxt, emailTxt;
+    LinearLayout chat, email;
+    ImageView chatImg, emailImg;
+    TextView chatTxt, emailTxt;
     EditText name;
 
     int selectedItem = 0;
@@ -45,20 +48,16 @@ public class ContactUsActivity extends LocalizationActivity implements EasyPermi
         call = findViewById(R.id.call);
         back = findViewById(R.id.back);
         name = findViewById(R.id.name);
-        videoCall = findViewById(R.id.video_call);
         chat = findViewById(R.id.chat);
         email = findViewById(R.id.email);
-        videoCallImg = findViewById(R.id.video_call_img);
         chatImg = findViewById(R.id.chat_img);
         emailImg = findViewById(R.id.email_img);
-        videoCallTxt = findViewById(R.id.video_call_txt);
         chatTxt = findViewById(R.id.chat_txt);
         emailTxt = findViewById(R.id.email_txt);
         startCallBtn = findViewById(R.id.start_call);
 
         back.setOnClickListener(v -> onBackPressed());
 
-        videoCall.setOnClickListener(v -> setVideoCallActive());
         chat.setOnClickListener(v -> setChatActive());
         email.setOnClickListener(v -> setEmailActive());
 
@@ -73,13 +72,6 @@ public class ContactUsActivity extends LocalizationActivity implements EasyPermi
         });
     }
 
-    private void setVideoCallActive() {
-        selectedItem = 1;
-        resetActive();
-        videoCall.setBackground(ContextCompat.getDrawable(getBaseContext(), R.drawable.light_blue_bg));
-        videoCallImg.setColorFilter(ContextCompat.getColor(getBaseContext(), R.color.white));
-        videoCallTxt.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.white));
-    }
 
     private void setChatActive() {
         selectedItem = 2;
@@ -100,10 +92,6 @@ public class ContactUsActivity extends LocalizationActivity implements EasyPermi
     }
 
     private void resetActive() {
-        videoCall.setBackground(ContextCompat.getDrawable(getBaseContext(), R.drawable.blue_border_button_bg));
-        videoCallImg.setColorFilter(ContextCompat.getColor(getBaseContext(), R.color.colorPrimaryDark));
-        videoCallTxt.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.colorPrimaryDark));
-
         chat.setBackground(ContextCompat.getDrawable(getBaseContext(), R.drawable.blue_border_button_bg));
         chatImg.setColorFilter(ContextCompat.getColor(getBaseContext(), R.color.colorPrimaryDark));
         chatTxt.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.colorPrimaryDark));
@@ -114,41 +102,33 @@ public class ContactUsActivity extends LocalizationActivity implements EasyPermi
     }
 
     private void startCall() {
-        String nameTxt = name.getText().toString();
-        if (nameTxt.length() == 0) {
-            Toast.makeText(this, R.string.add_name, Toast.LENGTH_SHORT).show();
-        } else if (selectedItem == 0) {
+        if (selectedItem == 0) {
             Toast.makeText(this, R.string.select_contact_way, Toast.LENGTH_SHORT).show();
-        }else if (selectedItem == 2){
-            if (EasyPermissions.hasPermissions(this,perms)){
-                Intent i = new Intent(getBaseContext(), ContactUsChatActivity.class);
-                i.putExtra("name", nameTxt);
-                startActivity(i);
-            }else {
-                grantPermissions();
-            }
+        } else if (selectedItem == 2) {
+            Dexter.withContext(getBaseContext())
+                    .withPermissions(
+                            Manifest.permission.CAMERA,
+                            Manifest.permission.RECORD_AUDIO
+                    ).withListener(new MultiplePermissionsListener() {
+                @Override
+                public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
+                    if (multiplePermissionsReport.areAllPermissionsGranted()) {
+                        Intent i = new Intent(getBaseContext(), ContactUsChatActivity.class);
+                        startActivity(i);
+                    }
+                }
+                @Override
+                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> list, PermissionToken permissionToken) {
+                }
+            }).check();
 
-        }
-        else if (selectedItem == 3) {
+        } else if (selectedItem == 3) {
             Intent i = new Intent(getBaseContext(), ContactEmailActivity.class);
-            i.putExtra("name", nameTxt);
+            i.putExtra("name", "nameTxt");
             startActivity(i);
         }
 
     }
 
-    private void grantPermissions(){
-        EasyPermissions.requestPermissions(this, "Permission request",
-                REQUEST_CAMERA_PERMISSION, perms);
-    }
 
-    @Override
-    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
-        startCall();
-    }
-
-    @Override
-    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
-        Toast.makeText(this, "You must grant all permissions to use ths feature", Toast.LENGTH_SHORT).show();
-    }
 }

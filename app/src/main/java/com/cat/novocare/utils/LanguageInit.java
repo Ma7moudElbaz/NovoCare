@@ -1,4 +1,4 @@
-package com.cat.novocare;
+package com.cat.novocare.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

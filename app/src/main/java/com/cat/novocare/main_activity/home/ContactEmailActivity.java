@@ -26,9 +26,8 @@ import retrofit2.Response;
 
 public class ContactEmailActivity extends LocalizationActivity {
 
-    EditText email, message;
+    EditText name,email, message;
     TextView sendBtn;
-    String name;
     ProgressBar loading;
     ImageView back;
 
@@ -36,10 +35,10 @@ public class ContactEmailActivity extends LocalizationActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_email);
-        name = getIntent().getStringExtra("name");
 
         back = findViewById(R.id.back);
         loading = findViewById(R.id.loading);
+        name = findViewById(R.id.name);
         email = findViewById(R.id.email);
         message = findViewById(R.id.message);
         sendBtn = findViewById(R.id.send);
@@ -52,14 +51,15 @@ public class ContactEmailActivity extends LocalizationActivity {
 
     public void sendEmail() {
         Map<String, String> map = new HashMap<>();
+        final String nameTxt = name.getText().toString();
         final String emailTxt = email.getText().toString();
         final String messageTxt = message.getText().toString();
 
-        if (emailTxt.length() == 0 || messageTxt.length() == 0) {
+        if (nameTxt.length() == 0 || emailTxt.length() == 0|| messageTxt.length() == 0) {
             Toast.makeText(getBaseContext(), R.string.fill_fields, Toast.LENGTH_SHORT).show();
         } else {
             loading.setVisibility(View.VISIBLE);
-            map.put("name", name);
+            map.put("name", nameTxt);
             map.put("email", emailTxt);
             map.put("comment", messageTxt);
             Webservice.getInstance().getApi().sendEmail(map).enqueue(new Callback<ResponseBody>() {

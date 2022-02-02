@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.main_activity.MainActivity;
+import com.cat.novocare.utils.LanguageInit;
 
 import java.util.Timer;
 import java.util.TimerTask;
