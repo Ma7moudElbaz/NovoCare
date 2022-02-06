@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.akexorcist.localizationactivity.core.OnLocaleChangedListener;
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.R;
 import com.cat.novocare.main_activity.edu_center.EduCenterFragment;
@@ -60,5 +61,18 @@ public class MainActivity extends LocalizationActivity implements BottomNavigati
             setContentFragment(new MoreFragment());
         }
         return true;
+    }
+
+    @Override
+    public void onAfterLocaleChanged() {
+        super.onAfterLocaleChanged();
+    }
+
+    @Override
+    public void onBeforeLocaleChanged() {
+        super.onBeforeLocaleChanged();
+        startActivity(getIntent());
+        finish();
+        overridePendingTransition(0, 0);
     }
 }
