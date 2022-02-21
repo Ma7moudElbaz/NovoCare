@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Webservice {
 
-    private static final String MAIN_URL = "https://novocare.cat-sw.com/api/v1/";
+    private static final String MAIN_URL = "https://novocare-eg.com/api/v1/";
     private static Webservice instance;
     private final ServiceInterface api;
 
