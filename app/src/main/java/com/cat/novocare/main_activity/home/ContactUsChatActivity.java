@@ -37,7 +37,7 @@ public class ContactUsChatActivity extends LocalizationActivity {
         back = findViewById(R.id.back);
         back.setOnClickListener(v -> onBackPressed());
 
-        url = "https://test-chat.vax.solutions";
+        url = "https://chat.novocare-eg.com";
 
 //        CookieManager.getInstance().setAcceptThirdPartyCookies(webView, false);
 //        webView.getSettings().setAppCacheEnabled(false);
