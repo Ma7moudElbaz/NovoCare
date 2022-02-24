@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config xmlns:tools="http://schemas.android.com/tools">
 
-    <base-config cleartextTrafficPermitted="true"
-        tools:ignore="InsecureBaseConfiguration" />
+    <base-config cleartextTrafficPermitted="false"/>
 
 
     <!-- Official Android N API -->
     <domain-config>
-        <domain includeSubdomains="true">cat-sw.com</domain>=
+        <domain includeSubdomains="true">novocare-eg.com</domain>
     </domain-config>
 
 
