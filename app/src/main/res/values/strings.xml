@@ -39,4 +39,5 @@
     <string name="for_contacting_novo_nordisk">For contacting Novo Nordisk</string>
     <string name="dismiss">dismiss</string>
     <string name="send_email_form">Send Email</string>
+    <string name="locator_header_text">Through this page you can know the nearest Novocare Center or Pharmacy that have Novonordisk Medications</string>
 </resources>

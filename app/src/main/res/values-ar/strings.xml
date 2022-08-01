@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="more">المزيد</string>
-    <string name="edu_center">الأخبار</string>
-    <string name="locator">المساعد</string>
+    <string name="edu_center">مركز التوعية</string>
+    <string name="locator">نوفو فين ؟</string>
     <string name="home">الرئيسيه</string>
     <string name="welcome">مرحباً</string>
     <string name="novo_locator">المساعد</string>
@@ -30,4 +30,5 @@
     <string name="for_contacting_novo_nordisk">لتواصلك مع نوڤو نورديسك</string>
     <string name="dismiss">إغلاق</string>
     <string name="send_email_form">إرسال بريد إلكتروني</string>
+    <string name="locator_header_text">من خلال هذه الصفحة يمكنك معرفة اقرب فرع نوفوكير او اقرب صيدلية بها علاجات نوفونورديسك</string>
 </resources>
