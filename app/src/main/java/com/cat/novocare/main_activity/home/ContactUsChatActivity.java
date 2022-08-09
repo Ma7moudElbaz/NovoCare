@@ -20,11 +20,14 @@ import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.R;
 import com.cat.novocare.ThankYouActivity;
 
+import java.util.Locale;
+
 public class ContactUsChatActivity extends LocalizationActivity {
     WebView webView;
     ProgressBar loading;
     String url;
     ImageView back;
+    String lang;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -37,7 +40,8 @@ public class ContactUsChatActivity extends LocalizationActivity {
         back = findViewById(R.id.back);
         back.setOnClickListener(v -> onBackPressed());
 
-        url = "https://chat.novocare-eg.com";
+        lang = Locale.getDefault().toString();
+        url = "https://chat.novocare-eg.com/?lang="+lang;
 
 //        CookieManager.getInstance().setAcceptThirdPartyCookies(webView, false);
 //        webView.getSettings().setAppCacheEnabled(false);

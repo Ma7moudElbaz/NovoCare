@@ -6,7 +6,7 @@
         <entry key="app/src/main/res/drawable/blue_bg.xml" value="0.1" />
         <entry key="app/src/main/res/layout-ar/fragment_home.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_about_us.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_contact_email.xml" value="0.13541666666666666" />
+        <entry key="app/src/main/res/layout/activity_contact_email.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_contact_us.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_contact_us_chat.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_faq.xml" value="0.1" />
