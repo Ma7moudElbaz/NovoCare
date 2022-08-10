@@ -4,14 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".main_activity.locator.LocatorFragment">
 
-
-    <WebView
-        android:id="@+id/webView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="80dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/locator_header_text"
+            android:textColor="@color/text_blue"
+            android:padding="10dp"
+            android:textSize="16sp" />
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
 
     <RelativeLayout
@@ -36,10 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="20dp"/>
+            android:layout_marginEnd="20dp" />
     </RelativeLayout>
-
-
 
 
 </RelativeLayout>
