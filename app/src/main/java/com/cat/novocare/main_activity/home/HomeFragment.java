@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import android.provider.Settings;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.cat.novocare.R;
 import com.cat.novocare.network.Webservice;
+import com.cat.novocare.utils.StoreActivity;
 
 import org.json.JSONObject;
 
@@ -51,6 +53,9 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        String device_id = "Android-"+ Settings.Secure.getString(getActivity().getContentResolver(), Settings.Secure.ANDROID_ID);
+        StoreActivity.addScreenActivity("Home",device_id);
 
         homeText = view.findViewById(R.id.text_home);
         homeImage = view.findViewById(R.id.image_home);

@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.cat.novocare.R;
+import com.cat.novocare.utils.StoreActivity;
 
 public class LocatorFragment extends Fragment {
     @Override
@@ -35,6 +37,9 @@ public class LocatorFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        String device_id = "Android-"+ Settings.Secure.getString(getActivity().getContentResolver(), Settings.Secure.ANDROID_ID);
+        StoreActivity.addScreenActivity("Locator",device_id);
 
         webView = view.findViewById(R.id.webView);
         loading = view.findViewById(R.id.loading);

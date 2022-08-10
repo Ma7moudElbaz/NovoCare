@@ -3,6 +3,7 @@ package com.cat.novocare.main_activity.more;
 import androidx.annotation.NonNull;
 
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.R;
 import com.cat.novocare.network.Webservice;
+import com.cat.novocare.utils.StoreActivity;
 
 import org.json.JSONObject;
 
@@ -36,6 +38,9 @@ public class AboutUsActivity extends LocalizationActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
+
+        String device_id = "Android-"+ Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
+        StoreActivity.addScreenActivity("About us",device_id);
 
         details = findViewById(R.id.details);
         back = findViewById(R.id.back);

@@ -34,4 +34,9 @@ public interface ServiceInterface {
     @FormUrlEncoded
     Call<ResponseBody> sendEmail(@FieldMap Map<String, String> map);
 
+    @POST("activities")
+    @FormUrlEncoded
+    Call<ResponseBody> addDeviceActivity(@FieldMap Map<String, String> map);
+
+
 }

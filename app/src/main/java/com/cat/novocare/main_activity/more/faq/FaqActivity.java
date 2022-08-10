@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
 import com.cat.novocare.R;
 import com.cat.novocare.network.Webservice;
+import com.cat.novocare.utils.StoreActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -46,6 +48,9 @@ public class FaqActivity extends LocalizationActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq);
+
+        String device_id = "Android-"+ Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
+        StoreActivity.addScreenActivity("FAQ",device_id);
 
         lang = Locale.getDefault().toString();
 

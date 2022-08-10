@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.cat.novocare.R;
 import com.cat.novocare.network.Webservice;
+import com.cat.novocare.utils.StoreActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -53,6 +55,10 @@ public class EduCenterFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        String device_id = "Android-"+ Settings.Secure.getString(getActivity().getContentResolver(), Settings.Secure.ANDROID_ID);
+        StoreActivity.addScreenActivity("EduCenter",device_id);
+
         lang = Locale.getDefault().toString();
 
         loading = view.findViewById(R.id.loading);
