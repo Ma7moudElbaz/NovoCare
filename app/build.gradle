@@ -8,7 +8,7 @@ android {
         release {
             keyAlias 'NovoCare'
             keyPassword 'NovoCare@123'
-            storeFile file('Desktop\\androidProjects\\NovoCare\\NovoCare.jks')
+            storeFile file('/Users/elbaz/Desktop/AndroidProjects/NovoCare/NovoCare.jks')
             storePassword 'NovoCare@123'
         }
     }
