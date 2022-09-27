@@ -39,6 +39,7 @@ android {
             enableSplit = false
         }
     }
+    namespace 'com.cat.novocare'
 
 }
 
