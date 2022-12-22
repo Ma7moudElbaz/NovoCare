@@ -37,7 +37,6 @@ import com.twilio.audioswitch.AudioDevice.Speakerphone;
 import com.twilio.audioswitch.AudioDevice.WiredHeadset;
 import com.twilio.audioswitch.AudioSwitch;
 import com.twilio.video.AudioCodec;
-import com.twilio.video.BuildConfig;
 import com.twilio.video.ConnectOptions;
 import com.twilio.video.EncodingParameters;
 import com.twilio.video.G722Codec;
