@@ -78,6 +78,15 @@ dependencies {
     //round Image
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
+    //twilio video call
+    implementation 'com.twilio:video-android:7.5.1'
+
+    implementation "com.twilio:audioswitch:1.1.5"
+
+    implementation 'com.koushikdutta.ion:ion:3.1.0'
+    implementation 'androidx.preference:preference:1.2.0'
+//    implementation 'com.android.support:preference-v14:28.0.0'
+
 }
 repositories {
     mavenCentral()

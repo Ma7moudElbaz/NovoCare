@@ -7,14 +7,16 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:name=".utils.App"
@@ -27,6 +29,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
+        <activity
+            android:name=".video_call.activities.VideoActivity"
+            android:configChanges="orientation|screenSize"/>
+        <activity
+            android:name=".video_call.activities.SettingsActivity"
+            android:theme="@style/AppTheme.Settings"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".video_call.activities.VideoActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.cat.novocare.video_call.activities.VideoActivity" />
+        </activity>
         <activity
             android:name=".ThankYouActivity"
             android:screenOrientation="portrait" />

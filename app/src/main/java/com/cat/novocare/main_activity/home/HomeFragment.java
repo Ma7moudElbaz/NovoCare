@@ -25,6 +25,7 @@ import com.bumptech.glide.Glide;
 import com.cat.novocare.R;
 import com.cat.novocare.network.Webservice;
 import com.cat.novocare.utils.StoreActivity;
+import com.cat.novocare.video_call.activities.VideoActivity;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -70,9 +71,9 @@ public class HomeFragment extends Fragment {
         contactUs = view.findViewById(R.id.contactUs);
 
         contactUs.setOnClickListener(v -> {
-            startCall();
-//            Intent i = new Intent(getActivity(), ContactUsActivity.class);
-//            startActivity(i);
+//            startCall();
+            Intent i = new Intent(getActivity(), VideoActivity.class);
+            startActivity(i);
         });
 
 
