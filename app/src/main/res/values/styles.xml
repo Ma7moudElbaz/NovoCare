@@ -11,6 +11,8 @@
 
     </style>
 
+    <style name="AppTheme.VideoCall" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
     <style name="AppTheme.Settings" parent="AppTheme">
         <item name="colorAccent">@color/colorPrimary</item>
         <item name="displayOptions">showHome|showTitle|homeAsUp</item>
