@@ -143,6 +143,7 @@ public class VideoActivity extends AppCompatActivity {
     private FloatingActionButton switchCameraActionFab;
     private FloatingActionButton localVideoActionFab;
     private FloatingActionButton muteActionFab;
+    private FloatingActionButton audioDeviceMenuItemFab;
     private ProgressBar reconnectingProgressBar;
     private AlertDialog connectDialog;
     private String remoteParticipantIdentity;
@@ -170,6 +171,7 @@ public class VideoActivity extends AppCompatActivity {
         connectActionFab = findViewById(R.id.connect_action_fab);
         switchCameraActionFab = findViewById(R.id.switch_camera_action_fab);
         localVideoActionFab = findViewById(R.id.local_video_action_fab);
+        audioDeviceMenuItemFab = findViewById(R.id.audioDeviceMenuItem_fab);
         muteActionFab = findViewById(R.id.mute_action_fab);
 
         /*
@@ -518,6 +520,8 @@ public class VideoActivity extends AppCompatActivity {
         localVideoActionFab.setOnClickListener(localVideoClickListener());
         muteActionFab.show();
         muteActionFab.setOnClickListener(muteClickListener());
+        audioDeviceMenuItemFab.show();
+        audioDeviceMenuItemFab.setOnClickListener(devicesMenuClickListener());
     }
 
     /*
@@ -555,7 +559,7 @@ public class VideoActivity extends AppCompatActivity {
      * Update the menu icon based on the currently selected audio device.
      */
     private void updateAudioDeviceIcon(AudioDevice selectedAudioDevice) {
-        if (null != audioDeviceMenuItem) {
+//        if (null != audioDeviceMenuItem) {
             int audioDeviceMenuIcon = R.drawable.ic_phonelink_ring_white_24dp;
 
             if (selectedAudioDevice instanceof BluetoothHeadset) {
@@ -567,8 +571,9 @@ public class VideoActivity extends AppCompatActivity {
             } else if (selectedAudioDevice instanceof Speakerphone) {
                 audioDeviceMenuIcon = R.drawable.ic_volume_up_white_24dp;
             }
-            audioDeviceMenuItem.setIcon(audioDeviceMenuIcon);
-        }
+//            audioDeviceMenuItem.setIcon(audioDeviceMenuIcon);
+            audioDeviceMenuItemFab.setImageDrawable(ContextCompat.getDrawable(this,audioDeviceMenuIcon));
+//        }
     }
 
     /*
@@ -1220,6 +1225,19 @@ public class VideoActivity extends AppCompatActivity {
                 int icon = enable ? R.drawable.ic_mic_white_24dp : R.drawable.ic_mic_off_black_24dp;
                 muteActionFab.setImageDrawable(ContextCompat.getDrawable(VideoActivity.this, icon));
             }
+        };
+    }
+
+
+
+    private View.OnClickListener devicesMenuClickListener() {
+        return v -> {
+            /*
+             * Enable/disable the local audio track. The results of this operation are
+             * signaled to other Participants in the same Room. When an audio track is
+             * disabled, the audio is muted.
+             */
+            showAudioDevices();
         };
     }
 

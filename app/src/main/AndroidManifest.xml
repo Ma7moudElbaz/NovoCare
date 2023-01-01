@@ -33,15 +33,6 @@
             android:name=".video_call.activities.VideoActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.VideoCall"/>
-<!--        <activity-->
-<!--            android:name=".video_call.activities.SettingsActivity"-->
-<!--            android:theme="@style/AppTheme.Settings"-->
-<!--            android:label="@string/title_activity_settings"-->
-<!--            android:parentActivityName=".video_call.activities.VideoActivity">-->
-<!--            <meta-data-->
-<!--                android:name="android.support.PARENT_ACTIVITY"-->
-<!--                android:value="com.cat.novocare.video_call.activities.VideoActivity" />-->
-<!--        </activity>-->
         <activity
             android:name=".ThankYouActivity"
             android:screenOrientation="portrait" />
