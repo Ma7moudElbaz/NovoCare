@@ -41,7 +41,8 @@ public class ContactUsChatActivity extends LocalizationActivity {
         back.setOnClickListener(v -> onBackPressed());
 
         lang = Locale.getDefault().toString();
-        url = "https://chat.novocare-eg.com/?lang="+lang;
+//        url = "https://chat.novocare-eg.com/?lang="+lang;
+        url = "https://vya.cat-sw.com/elbazzzzzzzz";
 
 //        CookieManager.getInstance().setAcceptThirdPartyCookies(webView, false);
 //        webView.getSettings().setAppCacheEnabled(false);
@@ -64,6 +65,7 @@ public class ContactUsChatActivity extends LocalizationActivity {
 
 
 
+        webView.addJavascriptInterface(new JsInterface(ContactUsChatActivity.this), "AndroidFunction");
 
         String myUA = "Android" + "Chrome/[.0-9]* Mobile";
         webView.getSettings().setUserAgentString(myUA);

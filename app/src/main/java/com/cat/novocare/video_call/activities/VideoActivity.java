@@ -93,8 +93,9 @@ public class VideoActivity extends AppCompatActivity {
      */
 
 
-    public static final String TWILIO_ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzdiMzE3YTRjOTc5MWE4OThjZDNhYmU5ODA4OGJhNjU0LTE2NzE3MTQzMTkiLCJpc3MiOiJTSzdiMzE3YTRjOTc5MWE4OThjZDNhYmU5ODA4OGJhNjU0Iiwic3ViIjoiQUNiZjUyZmY0N2JiNjRiZGE5MjhhNWU5M2RkN2RkYjc5MiIsImV4cCI6MTY3MTcxNzkxOSwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiRWxiYXoiLCJ2aWRlbyI6eyJyb29tIjoiQmV6b3MifX19._XCaxjVb_YwH22zrRQooGd1JvZQz1-WR0CNVAT7n5jE";
+    public static String TWILIO_ACCESS_TOKEN;
     public static final String ACCESS_TOKEN_SERVER = "https://video.novocare-eg.com";
+    public static String ROOM_NAME;
     public static final boolean USE_TOKEN_SERVER = false;
 
     /*
@@ -163,6 +164,10 @@ public class VideoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
+
+
+        TWILIO_ACCESS_TOKEN = getIntent().getStringExtra("twilio_access_token");
+        ROOM_NAME = getIntent().getStringExtra("room_name");
 
         primaryVideoView = findViewById(R.id.primary_video_view);
         thumbnailVideoView = findViewById(R.id.thumbnail_video_view);
@@ -353,6 +358,17 @@ public class VideoActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        stopEverything();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        stopEverything();
+        super.onBackPressed();
+    }
+
+    private void stopEverything() {
         /*
          * Tear down audio management and restore previous volume stream
          */
@@ -380,8 +396,6 @@ public class VideoActivity extends AppCompatActivity {
             localVideoTrack.release();
             localVideoTrack = null;
         }
-
-        super.onDestroy();
     }
 
     private boolean checkPermissions(String[] permissions) {
@@ -410,21 +424,21 @@ public class VideoActivity extends AppCompatActivity {
 
     private boolean checkPermissionForCameraAndMicrophone() {
         return checkPermissions(
-                new String[] {Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO});
+                new String[]{Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO});
     }
 
     private void requestPermissionForCameraMicrophoneAndBluetooth() {
         String[] permissionsList;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
             permissionsList =
-                    new String[] {
-                        Manifest.permission.CAMERA,
-                        Manifest.permission.RECORD_AUDIO,
-                        Manifest.permission.BLUETOOTH_CONNECT
+                    new String[]{
+                            Manifest.permission.CAMERA,
+                            Manifest.permission.RECORD_AUDIO,
+                            Manifest.permission.BLUETOOTH_CONNECT
                     };
         } else {
             permissionsList =
-                    new String[] {Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO};
+                    new String[]{Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO};
         }
         requestPermissions(permissionsList);
     }
@@ -465,6 +479,9 @@ public class VideoActivity extends AppCompatActivity {
 
     private void connectToRoom(String roomName) {
         audioSwitch.activate();
+
+        Log.e(TAG, ROOM_NAME );
+        Log.e(TAG, TWILIO_ACCESS_TOKEN );
         ConnectOptions.Builder connectOptionsBuilder =
                 new ConnectOptions.Builder(accessToken).roomName(roomName);
 
@@ -522,6 +539,13 @@ public class VideoActivity extends AppCompatActivity {
         muteActionFab.setOnClickListener(muteClickListener());
         audioDeviceMenuItemFab.show();
         audioDeviceMenuItemFab.setOnClickListener(devicesMenuClickListener());
+
+        new Thread() {
+            public void run() {
+                connectToRoom(ROOM_NAME);
+            }
+        }.start();
+
     }
 
     /*
@@ -560,19 +584,19 @@ public class VideoActivity extends AppCompatActivity {
      */
     private void updateAudioDeviceIcon(AudioDevice selectedAudioDevice) {
 //        if (null != audioDeviceMenuItem) {
-            int audioDeviceMenuIcon = R.drawable.ic_phonelink_ring_white_24dp;
+        int audioDeviceMenuIcon = R.drawable.ic_phonelink_ring_white_24dp;
 
-            if (selectedAudioDevice instanceof BluetoothHeadset) {
-                audioDeviceMenuIcon = R.drawable.ic_bluetooth_white_24dp;
-            } else if (selectedAudioDevice instanceof WiredHeadset) {
-                audioDeviceMenuIcon = R.drawable.ic_headset_mic_white_24dp;
-            } else if (selectedAudioDevice instanceof Earpiece) {
-                audioDeviceMenuIcon = R.drawable.ic_phonelink_ring_white_24dp;
-            } else if (selectedAudioDevice instanceof Speakerphone) {
-                audioDeviceMenuIcon = R.drawable.ic_volume_up_white_24dp;
-            }
+        if (selectedAudioDevice instanceof BluetoothHeadset) {
+            audioDeviceMenuIcon = R.drawable.ic_bluetooth_white_24dp;
+        } else if (selectedAudioDevice instanceof WiredHeadset) {
+            audioDeviceMenuIcon = R.drawable.ic_headset_mic_white_24dp;
+        } else if (selectedAudioDevice instanceof Earpiece) {
+            audioDeviceMenuIcon = R.drawable.ic_phonelink_ring_white_24dp;
+        } else if (selectedAudioDevice instanceof Speakerphone) {
+            audioDeviceMenuIcon = R.drawable.ic_volume_up_white_24dp;
+        }
 //            audioDeviceMenuItem.setIcon(audioDeviceMenuIcon);
-            audioDeviceMenuItemFab.setImageDrawable(ContextCompat.getDrawable(this,audioDeviceMenuIcon));
+        audioDeviceMenuItemFab.setImageDrawable(ContextCompat.getDrawable(this, audioDeviceMenuIcon));
 //        }
     }
 
@@ -1123,22 +1147,26 @@ public class VideoActivity extends AppCompatActivity {
             @Override
             public void onAudioTrackEnabled(
                     RemoteParticipant remoteParticipant,
-                    RemoteAudioTrackPublication remoteAudioTrackPublication) {}
+                    RemoteAudioTrackPublication remoteAudioTrackPublication) {
+            }
 
             @Override
             public void onAudioTrackDisabled(
                     RemoteParticipant remoteParticipant,
-                    RemoteAudioTrackPublication remoteAudioTrackPublication) {}
+                    RemoteAudioTrackPublication remoteAudioTrackPublication) {
+            }
 
             @Override
             public void onVideoTrackEnabled(
                     RemoteParticipant remoteParticipant,
-                    RemoteVideoTrackPublication remoteVideoTrackPublication) {}
+                    RemoteVideoTrackPublication remoteVideoTrackPublication) {
+            }
 
             @Override
             public void onVideoTrackDisabled(
                     RemoteParticipant remoteParticipant,
-                    RemoteVideoTrackPublication remoteVideoTrackPublication) {}
+                    RemoteVideoTrackPublication remoteVideoTrackPublication) {
+            }
         };
     }
 
@@ -1157,9 +1185,10 @@ public class VideoActivity extends AppCompatActivity {
              * Disconnect from room
              */
             if (room != null) {
-                room.disconnect();
+//                room.disconnect();
+                finish();
             }
-            intializeUI();
+//            intializeUI();
         };
     }
 
@@ -1227,7 +1256,6 @@ public class VideoActivity extends AppCompatActivity {
             }
         };
     }
-
 
 
     private View.OnClickListener devicesMenuClickListener() {

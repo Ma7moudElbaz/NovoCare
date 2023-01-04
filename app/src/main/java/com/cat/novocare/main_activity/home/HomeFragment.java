@@ -72,7 +72,8 @@ public class HomeFragment extends Fragment {
 
         contactUs.setOnClickListener(v -> {
 //            startCall();
-            Intent i = new Intent(getActivity(), VideoActivity.class);
+//            Intent i = new Intent(getActivity(), VideoActivity.class);
+            Intent i = new Intent(getActivity(), ContactUsChatActivity.class);
             startActivity(i);
         });
 

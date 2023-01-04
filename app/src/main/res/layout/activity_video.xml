@@ -69,7 +69,8 @@
             android:layout_margin="5dp"
             app:elevation="2dp"
             android:backgroundTint="@color/text_blue"
-            android:src="@drawable/ic_video_call_white_24dp"
+            android:src="@drawable/ic_call_end_white_24px"
+            android:tint="@color/red"
             app:fabSize="normal"
             android:contentDescription="@string/image_description" />
 
